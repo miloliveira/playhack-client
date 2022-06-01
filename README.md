@@ -163,8 +163,7 @@ Components:
 	enum:["Lisbon", "Berlin", "London", "Barcelona", "Madrid", "Amsterdam", "Miami", "New York City", "Tampa", "Mexico City", "São Paulo"]
    },
   likedGames: [{ type: Schema.Types.ObjectId, ref:'Game' }],
-  games: [ { type: Schema.Types.ObjectId, ref:'Game' } ],
-  comments: [ { type: Schema.Types.ObjectId, ref:'Comments' } ]
+  games: [ { type: Schema.Types.ObjectId, ref:'Game' } ]
 
 }
 ```
@@ -231,10 +230,12 @@ Components:
 | POST        | `/auth/logout`         |                              | 204            | 400          | Logs out the user                                              |
 | GET         | `/api/games`           | [{title, game_url,creator, description, comments, category, thumbnail}]|                | 400          | Show all games       |
 | GET         | `/api/games/:id`       | {title, game_url,creator, description, comments, category, thumbnail}|                |              | Show specific game     |
-| POST        | `/api/submit-game`     | {title, game_url, description,category, thumbnail}      | 201                    | 400                 | Submit new game      |
+| POST        | `/api/submit-game`     | {title, game_url, description,category, thumbnail, user}      | 201                    | 400                 | Submit new game      |
 | PUT         | `/api/games/:id/edit`  | {title, game_url, description,category, thumbnail}      | 200               | 400                  | Edit submited game       |
 | DELETE      | `/api/games/:id`       |                              | 201            | 400          | delete game                                                    |
-   
+| GET         | `/api/comments`     |     {content, user, game}                  |   201        | 400           | Show specific game     |
+| POST        | `/api/comments`       |      {content, user, game}                   | 201                    | 400             | Submit new game      |
+| DELETE      | `/api/games/:id`       |                              | 201            | 400          | delete game                                                    |
 
 <br>
 

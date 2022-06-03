@@ -23,17 +23,54 @@ const{userId}= useParams()
 
   useEffect(() => {
     getUser();
-  }, []);
+  }, [userId]);
 
 
-  return (
-    <div>
-    <h2>Hello</h2>
-   {/* <h2>{user.name}</h2>
-   <h2>{user.email}</h2>
-   <p>{user.imageUrl}</p>    */}
-    </div>
-  )
+  return (<div>
+    {user && 
+  <>
+  <div>
+   <h2>Hello {user.name}</h2>
+   <h2>bio: {user.bio}</h2>
+   <h4>cohort: {user.cohort}</h4>
+   <h4>cohort type:{user.cohortType}</h4>
+   <h4>campus: {user.campus}</h4>
+   <img src={user.imageUrl} alt="profile img"
+   />   
+</div>
+<div>
+  {user.games.map((userGame)=>{
+    return(
+      <div key={userGame._id}>
+      <p>{userGame.title}</p>
+        <img src={userGame.thumbnail} alt="game-img"/>
+      </div>
+    )
+  })}
+</div>
+<div>
+
+{user.likedGames.map((likedGame)=>{
+    return(
+      <div key={likedGame._id}>
+        <img src={likedGame.thumbnail} alt="game-img"/>
+      </div>
+    )
+  })}
+
+
+
+</div>
+
+   </>
+
+
+
+
+
+
+    }
+    </div>)
 }
 
 export default ProfilePage

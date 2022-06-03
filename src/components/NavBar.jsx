@@ -21,7 +21,7 @@ function NavBar() {
               <button>Profile</button>
             </Link>
             <Link to="/" ><button onClick={logoutUser}>Logout</button></Link>
-            <p>{user.username}</p>
+            <Link to={`/edit-profile/${user._id}`}><button>Edit your profile</button></Link>
           </>
         )}
   

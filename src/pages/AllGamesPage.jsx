@@ -22,7 +22,7 @@ function AllGamesPage() {
     <div>
       {games.map((game) => {
         return (
-          <div>
+          <div key={game._id}>
             <Link to={`/playing/${game._id}`}>
               <img src={game.thumbnail} alt="game thumbnail" />
               <h2>{game.title}</h2>

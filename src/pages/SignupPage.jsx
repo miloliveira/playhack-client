@@ -20,6 +20,10 @@ function SignupPage() {
     setPassword(e.target.value);
   };
 
+
+
+
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const body = { name, email, password };

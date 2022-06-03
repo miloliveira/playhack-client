@@ -1,0 +1,39 @@
+.gameDetailsBody{
+    padding: 0px;
+    margin: 0px;
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+#wrapper {
+    width: 960px;
+    height: 540px;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  #scaled-frame {
+    width: 1920px;
+    height: 1080px;
+    border: 0px;
+  }
+  
+  #scaled-frame {
+    zoom: 0.71;
+    -moz-transform: scale(0.50);
+    -moz-transform-origin: 0 0;
+    -o-transform: scale(0.50);
+    -o-transform-origin: 0 0;
+    -webkit-transform: scale(0.50);
+    -webkit-transform-origin: 0 0;
+  }
+  
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    #scaled-frame {
+      zoom: 1;
+    }
+  }

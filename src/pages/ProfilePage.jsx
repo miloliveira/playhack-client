@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
-
+import { AuthContext } from '../context/auth.context';
 function ProfilePage() {
 
-
-  const [user, setUser] = useState(null);
+  const { isLoggedIn, user}= useContext(AuthContext);
+  const [thisUser, setThisUser] = useState(null);
 const{userId}= useParams()
   const getUser = async () => {
     try {
@@ -15,7 +15,7 @@ const{userId}= useParams()
           Authorization: `Bearer ${getToken}`,
         },
       } */);
-      setUser(response.data);
+      setThisUser(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -27,30 +27,32 @@ const{userId}= useParams()
 
 
   return (<div>
-    {user && 
+    {thisUser && 
   <>
   <div>
-   <h2>Hello {user.name}</h2>
-   <h2>bio: {user.bio}</h2>
-   <h4>cohort: {user.cohort}</h4>
-   <h4>cohort type:{user.cohortType}</h4>
-   <h4>campus: {user.campus}</h4>
-   <img src={user.imageUrl} alt="profile img"
+   <h2>Hello {thisUser.name}</h2>
+   <h2>bio: {thisUser.bio}</h2>
+   <h4>cohort: {thisUser.cohort}</h4>
+   <h4>cohort type:{thisUser.cohortType}</h4>
+   <h4>campus: {thisUser.campus}</h4>
+   <img src={thisUser.imageUrl} alt="profile img"
    />   
 </div>
 <div>
-  {user.games.map((userGame)=>{
+  {thisUser.games.map((userGame)=>{
     return(
       <div key={userGame._id}>
       <p>{userGame.title}</p>
         <img src={userGame.thumbnail} alt="game-img"/>
+      {user._id === userId && 
+      <Link to={`/edit-game/${userGame._id}`}><button>Edit</button></Link>}
       </div>
     )
   })}
 </div>
 <div>
 
-{user.likedGames.map((likedGame)=>{
+{thisUser.likedGames.map((likedGame)=>{
     return(
       <div key={likedGame._id}>
         <img src={likedGame.thumbnail} alt="game-img"/>

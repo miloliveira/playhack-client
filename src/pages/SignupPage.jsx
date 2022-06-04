@@ -73,7 +73,7 @@ function SignupPage() {
         <p>Already have an account?</p>
         <Link to="/login">Log in here</Link>
       </form>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      {errorMessage && <p >{errorMessage}</p>}
 
     
     </div>

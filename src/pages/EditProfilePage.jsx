@@ -184,6 +184,7 @@ function EditProfilePage() {
 
         <button type="submit">Edit profile</button>
       </form>
+      <button>Delete profile</button>
     </div>
   );
 }

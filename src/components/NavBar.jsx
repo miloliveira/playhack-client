@@ -22,7 +22,10 @@ function NavBar() {
             </Link>
             <Link to="/" ><button onClick={logoutUser}>Logout</button></Link>
             <Link to={`/edit-profile/${user._id}`}><button>Edit your profile</button></Link>
+            <Link to={`/submit-game/${user._id}`}><button>Submit a game</button></Link>
           </>
+
+
         )}
   
         {!isLoggedIn && (

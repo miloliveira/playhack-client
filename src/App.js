@@ -29,9 +29,9 @@ function App() {
 
         <Route path="/playing/:gameId" element={<GameDetailsPage />} />
 
-        <Route path="/submit-game" element={<SubmitGamePage />} />
+        <Route path="/submit-game/:userId" element={<SubmitGamePage />} />
 
-        <Route path="/edit-game" element={<EditGamePage />} />
+        <Route path="/edit-game/:gameId" element={<EditGamePage />} />
 
         <Route path="/profile/:userId" element={<ProfilePage />} />
 

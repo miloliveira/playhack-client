@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { AuthContext } from '../context/auth.context';
 
+import { Link, useParams } from "react-router-dom";
+import CreateComments from "../components/CreateComments";
+import ViewComments from "../components/ViewComments";
 function GameDetailsPage() {
+  const { isLoggedIn}= useContext(AuthContext);
   const [game, setGame] = useState(null);
 
   const { gameId } = useParams();
@@ -20,7 +24,7 @@ function GameDetailsPage() {
 
   useEffect(() => {
     getGame();
-  }, []);
+  }, [gameId]);
 
   return (
     <div className="gameDetailsBody">
@@ -28,9 +32,10 @@ function GameDetailsPage() {
         <>
           <h2>{game.title}</h2>
           <Link to={`/profile/${game.user._id}`}>
-            <h4>{game.user.name}</h4>
+            <h4>Submited by: {game.user.name}</h4>
           </Link>
           <p>{game.description}</p>
+          <p>category: {game.category}</p>
           <button>
             <a href={game.gameUrl} target="_blank" rel="noreferrer">
               Play in full screen
@@ -43,6 +48,11 @@ function GameDetailsPage() {
               title={game.title}
             ></iframe>
           </div>
+          
+          <ViewComments gameId={game._id} />
+          {isLoggedIn &&  
+          <CreateComments gameId={game._id} />
+          }
         </>
       )}
     </div>

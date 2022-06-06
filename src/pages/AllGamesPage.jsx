@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Search from "../Components/Search";
+import Search from "../components/Search";
 
 function AllGamesPage() {
   const [games, setGames] = useState([]);

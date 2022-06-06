@@ -1,18 +1,18 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import NavBar from "./Components/NavBar";
-import HomePage from "./Pages/HomePage";
-import SignupPage from "./Pages/SignupPage";
-import LoginPage from "./Pages/LoginPage";
-import AllGamesPage from "./Pages/AllGamesPage";
-import GameDetailsPage from "./Pages/GameDetailsPage";
-import SubmitGamePage from "./Pages/SubmitGamePage";
-import EditGamePage from "./Pages/EditGamePage";
-import ProfilePage from "./Pages/ProfilePage";
-import EditProfilePage from "./Pages/EditProfilePage";
-import IsPrivate from "./Components/IsPrivate";
-import IsPublic from "./Components/IsPublic";
+import NavBar from "./components/NavBar";
+import HomePage from "./pages/HomePage";
+import SignupPage from "./pages/SignupPage";
+import LoginPage from "./pages/LoginPage";
+import AllGamesPage from "./pages/AllGamesPage";
+import GameDetailsPage from "./pages/GameDetailsPage";
+import SubmitGamePage from "./pages/SubmitGamePage";
+import EditGamePage from "./pages/EditGamePage";
+import ProfilePage from "./pages/ProfilePage";
+import EditProfilePage from "./pages/EditProfilePage";
+import IsPrivate from "./components/IsPrivate";
+import IsPublic from "./components/IsPublic";
 
 function App() {
   return (

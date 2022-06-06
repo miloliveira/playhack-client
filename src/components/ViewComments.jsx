@@ -30,7 +30,7 @@ function ViewComments(props) {
   useEffect(() => {
     getComments();
   }, []);
-
+console.log(commentList)
   return (
     <div>
       {commentList.length === 0 && <p>No comments yet</p>}
@@ -38,15 +38,18 @@ function ViewComments(props) {
         commentList.map((comment) => {
           return (
             <div key={comment._id}>
-              <Link to={`/profile/${comment.user._id}`}>
+           {/*  <p>{comment.user._id}</p> */}
+              {/* <Link to={`/profile/${comment.user._id}`}>
                 {comment.user.name}
-              </Link>
+              </Link> */}
               <p>{comment.content}</p>
-              {user._id === comment.user._id && (
+              <p>{comment.user._id}</p>
+              {/* {user._id === comment.user._id && (
                 <button onClick={() => deleteComment(comment._id)}>
                   Delete
                 </button>
-              )}
+              )} */}
+            
             </div>
           );
         })}

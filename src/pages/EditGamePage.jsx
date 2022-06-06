@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
+import { AuthContext } from '../context/auth.context';
+
 
 function EditGamePage() {
   const { gameId } = useParams();
@@ -11,7 +13,7 @@ function EditGamePage() {
   const getToken = localStorage.getItem("authToken");
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState(undefined);
-
+  const { user}= useContext(AuthContext);
 
   const getGame = async () => {
     try {
@@ -27,6 +29,16 @@ function EditGamePage() {
       setErrorMessage(error.response.data.errorMessage)
     }
   };
+
+  const deleteGame = (gameId) => {
+    axios.delete(`${process.env.REACT_APP_API_URL}/game/${gameId}`, {
+      headers: {
+        Authorization: `Bearer ${getToken}`,
+      },
+    });
+    navigate(`/profile/${user._id}`)
+  };
+
 
   useEffect(() => {
     getGame();
@@ -117,7 +129,7 @@ function EditGamePage() {
         <button type="submit">Edit your game</button>
 
       </form>
-      <button>Delete Game</button>
+      <button onClick={()=> deleteGame(gameId)}>Delete Game</button>
       {errorMessage && <p >{errorMessage}</p>}
   </div>;
 }

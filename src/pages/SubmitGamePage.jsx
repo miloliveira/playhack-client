@@ -5,11 +5,10 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 function SubmitGamePage() {
 
   const { userId } = useParams();
-
   const [title, setTitle] = useState("");
   const [gameUrl, setGameUrl] = useState("");
   const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState([]);
   const getToken = localStorage.getItem("authToken");
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -24,12 +23,14 @@ function SubmitGamePage() {
   };
 
   const handleCategory = (e) => {
-    setCategory(e.target.value);
+    setCategory([category, ...e.target.value]);
   };
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(!title || !description || !gameUrl || !category)return
+    
     const body = { title, description, gameUrl, category };
 
     axios
@@ -81,8 +82,10 @@ function SubmitGamePage() {
         <select
           id="category"
           name="category"
+          multiple
           onChange={handleCategory}
         >
+        <option value="" disabled selected>Select the category</option>
           <option value="Action">Action</option>
           <option value="Arcade">Arcade</option>
           <option value="Adventure">Adventure</option>

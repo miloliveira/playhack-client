@@ -36,7 +36,8 @@ function GameDetailsPage() {
             <h4>Submited by: {game.user.name}</h4>
           </Link>
           <p>{game.description}</p>
-          <p>category: {game.category}</p>
+          {game.category.map((cat)=> <p>{cat}</p> )}
+         
           <button>
             <a href={game.gameUrl} target="_blank" rel="noreferrer">
               Play in full screen

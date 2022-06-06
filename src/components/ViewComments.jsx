@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
-import { AuthContext } from '../context/auth.context';
+import { AuthContext } from "../context/auth.context";
 function ViewComments(props) {
   const { gameId } = props;
-  const { isLoggedIn, user}= useContext(AuthContext);
+  const { isLoggedIn, user } = useContext(AuthContext);
   const [commentList, setCommentList] = useState([]);
-  
-  
+  const getToken = localStorage.getItem("authToken");
+
   const getComments = async () => {
     try {
       let response = await axios.get(
@@ -19,14 +19,21 @@ function ViewComments(props) {
     }
   };
 
+  const deleteComment = (commentId) => {
+    axios.delete(`${process.env.REACT_APP_API_URL}/comment/${commentId}`, {
+      headers: {
+        Authorization: `Bearer ${getToken}`,
+      },
+    });
+  };
+
   useEffect(() => {
-     
     getComments();
   }, []);
 
   return (
     <div>
-    {commentList.length===0 && <p>No comments yet</p>}
+      {commentList.length === 0 && <p>No comments yet</p>}
       {commentList.length > 0 &&
         commentList.map((comment) => {
           return (
@@ -35,7 +42,11 @@ function ViewComments(props) {
                 {comment.user.name}
               </Link>
               <p>{comment.content}</p>
-              {user._id === comment.user._id && <> <button>Delete</button></> }
+              {user._id === comment.user._id && (
+                <button onClick={() => deleteComment(comment._id)}>
+                  Delete
+                </button>
+              )}
             </div>
           );
         })}

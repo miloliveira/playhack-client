@@ -30,7 +30,7 @@ const{userId}= useParams()
     {thisUser && 
   <>
   <div>
-   <h2>Hello {thisUser.name}</h2>
+   <h2>{thisUser.name}</h2>
    <h2>bio: {thisUser.bio}</h2>
    <h4>cohort: {thisUser.cohort}</h4>
    <h4>cohort type:{thisUser.cohortType}</h4>

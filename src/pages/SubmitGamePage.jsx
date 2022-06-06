@@ -40,7 +40,7 @@ function SubmitGamePage() {
       })
       .then((response) => {
         
-        navigate(`/`);
+        navigate(`/profile/${userId}`);
       })
       .catch((err) => {
         setErrorMessage(err.response.data.errorMessage);

@@ -3,8 +3,9 @@ import axios from "axios";
 import { AuthContext } from '../context/auth.context';
 
 import { Link, useParams } from "react-router-dom";
-import CreateComments from "../components/CreateComments";
-import ViewComments from "../components/ViewComments";
+import CreateComments from "../Components/CreateComments";
+import ViewComments from "../Components/ViewComments";
+
 function GameDetailsPage() {
   const { isLoggedIn}= useContext(AuthContext);
   const [game, setGame] = useState(null);

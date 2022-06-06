@@ -79,7 +79,7 @@ console.log(category)
           onChange={handleGameUrl}
         />
 
-<label htmlFor="category">category:</label>
+<label htmlFor="category">Category:</label>
         
         <input type="checkbox" value="Action" name="category" onClick={handleCategory} />
         <label htmlFor="Action">Action</label>
@@ -90,22 +90,21 @@ console.log(category)
         <input type="checkbox" value="Adventure" name="category" onClick={handleCategory} />
         <label htmlFor="Adventure">Adventure</label>
 
-       {/*  <select
-          id="category"
-          name="category"
-          multiple
-          onChange={handleCategory}
-        >
-        <option value="" disabled selected>Select the category</option>
-          <option value="Action">Action</option>
-          <option value="Arcade">Arcade</option>
-          <option value="Adventure">Adventure</option>
-          <option value="Racing">Racing</option>
-          <option value="Puzzle">Puzzle</option>
-          <option value="Shoting">Shoting</option>
-          <option value="Sports">Sports</option>
-          <option value="Other">Other</option>
-        </select> */}
+        <input type="checkbox" value="Racing" name="category" onClick={handleCategory} />
+        <label htmlFor="Racing">Racing</label>
+
+        <input type="checkbox" value="Puzzle" name="category" onClick={handleCategory} />
+        <label htmlFor="Puzzle">Puzzle</label>
+
+        <input type="checkbox" value="Shooting" name="category" onClick={handleCategory} />
+        <label htmlFor="Shooting">Shooting</label>
+
+        <input type="checkbox" value="Sports" name="category" onClick={handleCategory} />
+        <label htmlFor="Sports">Sports</label>
+       
+        <input type="checkbox" value="Other" name="category" onClick={handleCategory} />
+        <label htmlFor="Other">Other</label>
+       
 
         <button type="submit">Submit your game</button>
 

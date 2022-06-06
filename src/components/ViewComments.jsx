@@ -45,7 +45,7 @@ console.log(commentList)
                 {comment.user.name}
               </Link> */}
               <p>{comment.content}</p>
-              <p>{comment.user.name}</p>
+              <Link to={`/profile/${comment.user._id}`}><p>{comment.user.name}</p></Link>
               {user._id === comment.user._id && (
                 <button onClick={() => deleteComment(comment._id)}>
                   Delete

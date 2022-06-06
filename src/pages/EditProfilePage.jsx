@@ -1,21 +1,21 @@
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { AuthContext } from '../context/auth.context';
+import { AuthContext } from "../context/auth.context";
 function EditProfilePage() {
   const { userId } = useParams();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [bio, setBio] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+
   const [cohort, setCohort] = useState("");
   const [cohortType, setCohortType] = useState("");
   const [campus, setCampus] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
   const navigate = useNavigate();
   const getToken = localStorage.getItem("authToken");
-  const {  logoutUser } = useContext(AuthContext);
+  const { logoutUser } = useContext(AuthContext);
   const getUser = async () => {
     try {
       let response = await axios.get(
@@ -25,12 +25,12 @@ function EditProfilePage() {
         },
       } */
       );
-      console.log(response.data)
+      console.log(response.data);
       setName(response.data.name);
       setEmail(response.data.email);
       setPassword(response.data.password);
       setBio(response.data.bio);
-      setImageUrl(response.data.imageUrl);
+
       setCohort(response.data.cohort);
       setCohortType(response.data.cohortType);
       setCampus(response.data.campus);
@@ -45,10 +45,9 @@ function EditProfilePage() {
         Authorization: `Bearer ${getToken}`,
       },
     });
-    logoutUser()
-    navigate(`/`)
+    logoutUser();
+    navigate(`/`);
   };
-
 
   useEffect(() => {
     getUser();
@@ -70,10 +69,6 @@ function EditProfilePage() {
     setBio(e.target.value);
   };
 
-  const handleImageUrl = (e) => {
-    setImageUrl(e.target.value);
-  };
-
   const handleCohort = (e) => {
     setCohort(e.target.value);
   };
@@ -92,7 +87,6 @@ function EditProfilePage() {
       name,
       email,
       password,
-      imageUrl,
       bio,
       cohort,
       cohortType,
@@ -109,7 +103,7 @@ function EditProfilePage() {
         setEmail("");
         setPassword("");
         setBio("");
-        setImageUrl("");
+
         setCohort("");
         setCohortType("");
         setCampus("");
@@ -127,20 +121,12 @@ function EditProfilePage() {
         <label htmlFor="email">Email address:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
 
-        {/* <label htmlFor="password">Password:</label>
+        <label htmlFor="password">Password:</label>
         <input
           type="password"
           name="password"
           value={password}
           onChange={handlePassword}
-        /> */}
-        
-        <label htmlFor="imageUrl">ImageUrl:</label>
-        <input
-          type="file"
-          name="imageUrl"
-          value={imageUrl}
-          onChange={handleImageUrl}
         />
 
         <label htmlFor="bio">Bio:</label>
@@ -196,7 +182,7 @@ function EditProfilePage() {
 
         <button type="submit">Edit profile</button>
       </form>
-      <button onClick={()=> deleteUser(userId)}>Delete profile</button>
+      <button onClick={() => deleteUser(userId)}>Delete profile</button>
     </div>
   );
 }

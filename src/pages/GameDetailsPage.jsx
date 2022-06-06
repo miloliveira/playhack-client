@@ -37,7 +37,7 @@ function GameDetailsPage() {
           </Link>
           <p>{game.description}</p>
           {game.category.map((cat) => (
-            <p>{cat}</p>
+            <p key={cat}>{cat}</p>
           ))}
 
           <button>

@@ -42,8 +42,9 @@ const{userId}= useParams()
   {thisUser.games.map((userGame)=>{
     return(
       <div key={userGame._id}>
-      <p>{userGame.title}</p>
-        <img src={userGame.thumbnail} alt="game-img"/>
+      <Link to={`/playing/${userGame._id}`}><p>{userGame.title}</p>
+        <img src={userGame.imageUrl} alt="game-img"/></Link>
+      
       {user._id === userId && 
       <Link to={`/edit-game/${userGame._id}`}><button>Edit</button></Link>}
       </div>

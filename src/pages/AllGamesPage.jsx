@@ -21,7 +21,9 @@ function AllGamesPage() {
     let updatedGames = games.filter((el) => {
 
       const filteredByTitle = el.title.toLowerCase().includes(search.toLowerCase())
+
       const filteredByUser = el.user.name.toLowerCase().includes(search.toLowerCase())
+
 
       return filteredByTitle + filteredByUser
     });
@@ -40,7 +42,7 @@ function AllGamesPage() {
         return (
           <div key={game._id}>
             <Link to={`/playing/${game._id}`}>
-              <img src={game.thumbnail} alt="game thumbnail" />
+              <img src={game.imageUrl} alt="game thumbnail" />
               <h2>{game.title}</h2>
             </Link>
             <Link to={`/profile/${game.user._id}`}>

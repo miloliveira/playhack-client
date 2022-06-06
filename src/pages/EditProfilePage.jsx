@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
-
+import { AuthContext } from '../context/auth.context';
 function EditProfilePage() {
   const { userId } = useParams();
   const [name, setName] = useState("");
@@ -15,7 +15,7 @@ function EditProfilePage() {
   const [errorMessage, setErrorMessage] = useState(undefined);
   const navigate = useNavigate();
   const getToken = localStorage.getItem("authToken");
-
+  const {  logoutUser } = useContext(AuthContext);
   const getUser = async () => {
     try {
       let response = await axios.get(
@@ -25,11 +25,12 @@ function EditProfilePage() {
         },
       } */
       );
+      console.log(response.data)
       setName(response.data.name);
       setEmail(response.data.email);
       setPassword(response.data.password);
       setBio(response.data.bio);
-      /* setImageUrl(response.data.imageUrl); */
+      setImageUrl(response.data.imageUrl);
       setCohort(response.data.cohort);
       setCohortType(response.data.cohortType);
       setCampus(response.data.campus);
@@ -37,6 +38,17 @@ function EditProfilePage() {
       console.log(error);
     }
   };
+
+  const deleteUser = (userId) => {
+    axios.delete(`${process.env.REACT_APP_API_URL}/user/${userId}`, {
+      headers: {
+        Authorization: `Bearer ${getToken}`,
+      },
+    });
+    logoutUser()
+    navigate(`/`)
+  };
+
 
   useEffect(() => {
     getUser();
@@ -122,14 +134,14 @@ function EditProfilePage() {
           value={password}
           onChange={handlePassword}
         /> */}
-        {/* 
+        
         <label htmlFor="imageUrl">ImageUrl:</label>
         <input
           type="file"
           name="imageUrl"
           value={imageUrl}
           onChange={handleImageUrl}
-        /> */}
+        />
 
         <label htmlFor="bio">Bio:</label>
         <textarea
@@ -184,7 +196,7 @@ function EditProfilePage() {
 
         <button type="submit">Edit profile</button>
       </form>
-      <button>Delete profile</button>
+      <button onClick={()=> deleteUser(userId)}>Delete profile</button>
     </div>
   );
 }

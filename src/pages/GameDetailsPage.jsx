@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { AuthContext } from '../context/auth.context';
+import { AuthContext } from "../context/auth.context";
 
 import { Link, useParams } from "react-router-dom";
 import CreateComments from "../components/CreateComments";
 import ViewComments from "../components/ViewComments";
 
 function GameDetailsPage() {
-  const { isLoggedIn}= useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
   const [game, setGame] = useState(null);
-
+  const [isUpdated, setIsUpdated] = useState(true);
   const { gameId } = useParams();
 
   const getGame = async () => {
@@ -36,7 +36,10 @@ function GameDetailsPage() {
             <h4>Submited by: {game.user.name}</h4>
           </Link>
           <p>{game.description}</p>
-          <p>category: {game.category}</p>
+          {game.category.map((cat) => (
+            <p>{cat}</p>
+          ))}
+
           <button>
             <a href={game.gameUrl} target="_blank" rel="noreferrer">
               Play in full screen
@@ -49,11 +52,9 @@ function GameDetailsPage() {
               title={game.title}
             ></iframe>
           </div>
-          
-          <ViewComments gameId={game._id} />
-          {isLoggedIn &&  
-          <CreateComments gameId={game._id} />
-          }
+
+          <ViewComments gameId={game._id} isUpdated={isUpdated} setIsUpdated={setIsUpdated} />
+          {isLoggedIn && <CreateComments gameId={game._id} isUpdated={isUpdated} setIsUpdated={setIsUpdated} />}
         </>
       )}
     </div>

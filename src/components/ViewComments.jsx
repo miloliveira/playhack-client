@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 function ViewComments(props) {
-  const { gameId } = props;
+  const { gameId, isUpdated, setIsUpdated  } = props;
   const { isLoggedIn, user } = useContext(AuthContext);
   const [commentList, setCommentList] = useState([]);
   const getToken = localStorage.getItem("authToken");
@@ -14,6 +14,7 @@ function ViewComments(props) {
         `${process.env.REACT_APP_API_URL}/game/${gameId}/comments`
       );
       setCommentList(response.data);
+      setIsUpdated(true)
     } catch (error) {
       console.log(error);
     }
@@ -25,12 +26,13 @@ function ViewComments(props) {
         Authorization: `Bearer ${getToken}`,
       },
     });
+    setIsUpdated(false)
   };
 
   useEffect(() => {
     getComments();
-  }, []);
-
+  }, [isUpdated]);
+console.log(commentList)
   return (
     <div>
       {commentList.length === 0 && <p>No comments yet</p>}
@@ -38,15 +40,18 @@ function ViewComments(props) {
         commentList.map((comment) => {
           return (
             <div key={comment._id}>
-              <Link to={`/profile/${comment.user._id}`}>
+           {/*  <p>{comment.user._id}</p> */}
+              {/* <Link to={`/profile/${comment.user._id}`}>
                 {comment.user.name}
-              </Link>
+              </Link> */}
               <p>{comment.content}</p>
+              <p>{comment.user.name}</p>
               {user._id === comment.user._id && (
                 <button onClick={() => deleteComment(comment._id)}>
                   Delete
                 </button>
               )}
+            
             </div>
           );
         })}

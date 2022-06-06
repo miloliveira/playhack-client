@@ -5,7 +5,7 @@ import { Link, useParams } from "react-router-dom";
 function Comments(props) {
 
     const [content, setContent] = useState("")
-    const{gameId}=props
+    const{gameId, setIsUpdated}=props
     const getToken = localStorage.getItem("authToken");
     const [errorMessage, setErrorMessage] = useState(undefined);
     const handleContent = (e) => {
@@ -24,6 +24,7 @@ function Comments(props) {
         })
         .then((response) => {
           setContent("")
+          setIsUpdated(false)
         })
         .catch((err) => {
           setErrorMessage(err.response.data.errorMessage);

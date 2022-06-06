@@ -25,11 +25,12 @@ function EditProfilePage() {
         },
       } */
       );
+      console.log(response.data)
       setName(response.data.name);
       setEmail(response.data.email);
       setPassword(response.data.password);
       setBio(response.data.bio);
-      /* setImageUrl(response.data.imageUrl); */
+      setImageUrl(response.data.imageUrl);
       setCohort(response.data.cohort);
       setCohortType(response.data.cohortType);
       setCampus(response.data.campus);
@@ -133,14 +134,14 @@ function EditProfilePage() {
           value={password}
           onChange={handlePassword}
         /> */}
-        {/* 
+        
         <label htmlFor="imageUrl">ImageUrl:</label>
         <input
           type="file"
           name="imageUrl"
           value={imageUrl}
           onChange={handleImageUrl}
-        /> */}
+        />
 
         <label htmlFor="bio">Bio:</label>
         <textarea

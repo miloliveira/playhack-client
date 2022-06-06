@@ -9,6 +9,7 @@ function SubmitGamePage() {
   const [gameUrl, setGameUrl] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState([]);
+/*   const [thumbnail, setThumbnail] = useState(second) */
   const getToken = localStorage.getItem("authToken");
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -23,9 +24,9 @@ function SubmitGamePage() {
   };
 
   const handleCategory = (e) => {
-    setCategory([category, ...e.target.value]);
+    setCategory([...category, e.target.value]);
   };
-
+console.log(category)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -79,7 +80,17 @@ function SubmitGamePage() {
         />
 
 <label htmlFor="category">category:</label>
-        <select
+        
+        <input type="checkbox" value="Action" name="category" onClick={handleCategory} />
+        <label htmlFor="Action">Action</label>
+
+        <input type="checkbox" value="Arcade" name="category" onClick={handleCategory}/>
+        <label htmlFor="Arcade">Arcade</label>
+
+        <input type="checkbox" value="Adventure" name="category" onClick={handleCategory} />
+        <label htmlFor="Adventure">Adventure</label>
+
+       {/*  <select
           id="category"
           name="category"
           multiple
@@ -94,7 +105,7 @@ function SubmitGamePage() {
           <option value="Shoting">Shoting</option>
           <option value="Sports">Sports</option>
           <option value="Other">Other</option>
-        </select>
+        </select> */}
 
         <button type="submit">Submit your game</button>
 

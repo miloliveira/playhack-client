@@ -83,6 +83,9 @@ function EditProfilePage() {
     setCampus(e.target.value);
   };
 
+
+  
+
   const handleFileUpload = (e) => {
     const uploadData = new FormData();
 
@@ -95,6 +98,9 @@ function EditProfilePage() {
       })
       .catch((err) => console.log(err));
   };
+
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();

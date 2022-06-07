@@ -57,8 +57,7 @@ function EditGamePage() {
 
   const handleCategory = (e) => {
     setCategory([...category, e.target.value]);
-  };
-
+  };  
 
 
   const handleFileUpload = (e) => {
@@ -87,10 +86,7 @@ function EditGamePage() {
         },
       })
       .then((response) => {
-        setTitle("");
-        setDescription("");
-        setCategory("");
-        setGameUrl("");
+
         navigate(`/playing/${response.data._id}`);
       })
       .catch((err) => console.log(err));

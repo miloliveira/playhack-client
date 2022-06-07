@@ -73,8 +73,12 @@ function GameDetailsPage() {
               id="scaled-frame"
               src={game.gameUrl}
               title={game.title}
-            ></iframe>
+            >
+            </iframe>
+
           </div>
+
+
 
           <ViewComments
             gameId={game._id}

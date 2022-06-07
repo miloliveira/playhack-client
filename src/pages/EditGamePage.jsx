@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { AuthContext } from '../context/auth.context';
+import { AuthContext } from "../context/auth.context";
 import service from "../api/service";
 
 function EditGamePage() {
@@ -9,13 +9,13 @@ function EditGamePage() {
   const [title, setTitle] = useState("");
   const [gameUrl, setGameUrl] = useState("");
   const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState([]);
   const [imageUrl, setImageUrl] = useState("");
   const getToken = localStorage.getItem("authToken");
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState(undefined);
-  const { user}= useContext(AuthContext);
-
+  const { user } = useContext(AuthContext);
+  const [isUploading, setIsUploading] = useState(false);
   const getGame = async () => {
     try {
       let response = await axios.get(
@@ -27,7 +27,7 @@ function EditGamePage() {
       setGameUrl(response.data.gameUrl);
     } catch (error) {
       console.log(error);
-      setErrorMessage(error.response.data.errorMessage)
+      setErrorMessage(error.response.data.errorMessage);
     }
   };
 
@@ -37,9 +37,8 @@ function EditGamePage() {
         Authorization: `Bearer ${getToken}`,
       },
     });
-    navigate(`/profile/${user._id}`)
+    navigate(`/profile/${user._id}`);
   };
-
 
   useEffect(() => {
     getGame();
@@ -56,29 +55,53 @@ function EditGamePage() {
   };
 
   const handleCategory = (e) => {
-    setCategory([...category, e.target.value]);
-  };  
-
+    if (e.target.checked) {
+      let newCat = [...category, e.target.value];
+      setCategory(newCat);
+    } else {
+      let newCat = [...category].filter((el) => el !== e.target.value);
+      setCategory(newCat);
+    }
+  };
 
   const handleFileUpload = (e) => {
     const uploadData = new FormData();
-
+    setIsUploading(true);
     uploadData.append("imageUrl", e.target.files[0]);
 
     service
       .uploadImage(uploadData)
       .then((response) => {
+        setIsUploading(false);
         setImageUrl(response.fileUrl);
       })
       .catch((err) => console.log(err));
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    const body = {
-      title, gameUrl, description, imageUrl, category
-    };
+    if (isUploading) {
+      alert("Image still uploading");
+      return;
+    }
+    let body;
+    if(imageUrl){
+      body = {
+        title,
+        gameUrl,
+        description,
+        imageUrl,
+        category,
+      };
+    }else{
+      body = {
+        title,
+        gameUrl,
+        description,
+        category,
+      };
+    }
+    console.log(category);
     axios
       .put(`${process.env.REACT_APP_API_URL}/game/${gameId}`, body, {
         headers: {
@@ -86,26 +109,20 @@ function EditGamePage() {
         },
       })
       .then((response) => {
-
         navigate(`/playing/${response.data._id}`);
       })
       .catch((err) => console.log(err));
   };
 
-  return <div>
-  
-  <h2>EditGamePage</h2>
-  
-  <form onSubmit={handleSubmit}>
-        <label htmlFor="title">Title*</label>
-        <input
-          type="text"
-          value={title}
-          name="title"
-          onChange={handleTitle}
-        />
+  return (
+    <div className="editGameBody">
+      <h2>EditGamePage</h2>
 
-<label htmlFor="description">description:</label>
+      <form onSubmit={handleSubmit} className="editGameForm">
+        <label htmlFor="title">Title*</label>
+        <input type="text" value={title} name="title" onChange={handleTitle} />
+
+        <label htmlFor="description">description:</label>
         <textarea
           name="description"
           cols="30"
@@ -114,7 +131,7 @@ function EditGamePage() {
           onChange={handleDescription}
         ></textarea>
 
-<label htmlFor="gameUrl">GameUrl*</label>
+        <label htmlFor="gameUrl">GameUrl*</label>
         <input
           type="text"
           value={gameUrl}
@@ -122,45 +139,96 @@ function EditGamePage() {
           onChange={handleGameUrl}
         />
 
-<input
+        <input
           type="file"
           name="imageUrl"
           onChange={(e) => handleFileUpload(e)}
         />
 
-<label htmlFor="category">Category:</label>
-        
-        <input type="checkbox" value="Action" name="category" onClick={handleCategory} />
-        <label htmlFor="Action">Action</label>
+        <label htmlFor="category">Category:</label>
+        <div>
+          <input
+            type="checkbox"
+            value="Action"
+            checked={category.includes("Action")}
+            name="category"
+            onChange={handleCategory}
+          />
+          <label htmlFor="Action">Action</label>
 
-        <input type="checkbox" value="Arcade" name="category" onClick={handleCategory}/>
-        <label htmlFor="Arcade">Arcade</label>
+          <input
+            type="checkbox"
+            value="Arcade"
+            checked={category.includes("Arcade")}
+            name="category"
+            onChange={handleCategory}
+          />
+          <label htmlFor="Arcade">Arcade</label>
 
-        <input type="checkbox" value="Adventure" name="category" onClick={handleCategory} />
-        <label htmlFor="Adventure">Adventure</label>
+          <input
+            type="checkbox"
+            value="Adventure"
+            checked={category.includes("Adventure")}
+            name="category"
+            onChange={handleCategory}
+          />
+          <label htmlFor="Adventure">Adventure</label>
 
-        <input type="checkbox" value="Racing" name="category" onClick={handleCategory} />
-        <label htmlFor="Racing">Racing</label>
+          <input
+            type="checkbox"
+            value="Racing"
+            checked={category.includes("Racing")}
+            name="category"
+            onChange={handleCategory}
+          />
+          <label htmlFor="Racing">Racing</label>
 
-        <input type="checkbox" value="Puzzle" name="category" onClick={handleCategory} />
-        <label htmlFor="Puzzle">Puzzle</label>
+          <input
+            type="checkbox"
+            value="Puzzle"
+            checked={category.includes("Puzzle")}
+            name="category"
+            onChange={handleCategory}
+          />
+          <label htmlFor="Puzzle">Puzzle</label>
 
-        <input type="checkbox" value="Shooting" name="category" onClick={handleCategory} />
-        <label htmlFor="Shooting">Shooting</label>
+          <input
+            type="checkbox"
+            value="Shooting"
+            checked={category.includes("Shooting")}
+            name="category"
+            onChange={handleCategory}
+          />
+          <label htmlFor="Shooting">Shooting</label>
 
-        <input type="checkbox" value="Sports" name="category" onClick={handleCategory} />
-        <label htmlFor="Sports">Sports</label>
-       
-        <input type="checkbox" value="Other" name="category" onClick={handleCategory} />
-        <label htmlFor="Other">Other</label>
-       
+          <input
+            type="checkbox"
+            value="Sports"
+            checked={category.includes("Sports")}
+            name="category"
+            onChange={handleCategory}
+          />
+          <label htmlFor="Sports">Sports</label>
+
+          <input
+            type="checkbox"
+            value="Other"
+            checked={category.includes("Other")}
+            name="category"
+            onChange={handleCategory}
+          />
+          <label htmlFor="Other">Other</label>
+        </div>
 
         <button type="submit">Edit your game</button>
 
+        <button onClick={() => deleteGame(gameId)} className="deleteGameBtn">
+          Delete Game
+        </button>
       </form>
-      <button onClick={()=> deleteGame(gameId)}>Delete Game</button>
-      {errorMessage && <p >{errorMessage}</p>}
-  </div>;
+      {errorMessage && <p>{errorMessage}</p>}
+    </div>
+  );
 }
 
 export default EditGamePage;

@@ -48,8 +48,35 @@
 }
 
 .eachSubmitedGame{
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     width: 20vw;
     height: 20vh;
+    margin: 20px;
+}
+.submitedGamePic{
+    max-width: 20vw;
+    max-height: 20vh;
+}
+.likedGamesDiv{
+    display: flex;
+    flex-direction: row;
+    border: 2px solid black;
+    width: 70vw;
+    height: 40vh;
+    overflow-x: scroll;
+    white-space: nowrap;
+    margin: 20px;
+    align-items: center;
+}
+.eachLikedGame{
+    width: 20vw;
+    height: 20vh;
+    
+}
+
+.likedGamePic{
+    max-width: 20vw;
+    max-height: 20vh;
     margin: 20px;
 }

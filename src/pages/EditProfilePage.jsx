@@ -15,6 +15,7 @@ function EditProfilePage() {
   const [cohortType, setCohortType] = useState("");
   const [campus, setCampus] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
+  const [isUploading, setIsUploading] = useState(false);
   const navigate = useNavigate();
   const getToken = localStorage.getItem("authToken");
   const { logoutUser } = useContext(AuthContext);
@@ -30,9 +31,8 @@ function EditProfilePage() {
       console.log(response.data);
       setName(response.data.name);
       setEmail(response.data.email);
-      setPassword(response.data.password);
-      setBio(response.data.bio);
 
+      setBio(response.data.bio);
       setCohort(response.data.cohort);
       setCohortType(response.data.cohortType);
       setCampus(response.data.campus);
@@ -63,10 +63,6 @@ function EditProfilePage() {
     setEmail(e.target.value);
   };
 
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
   const handleBio = (e) => {
     setBio(e.target.value);
   };
@@ -83,37 +79,50 @@ function EditProfilePage() {
     setCampus(e.target.value);
   };
 
-
-  
-
   const handleFileUpload = (e) => {
     const uploadData = new FormData();
-
+    setIsUploading(true);
     uploadData.append("imageUrl", e.target.files[0]);
 
     service
       .uploadImage(uploadData)
       .then((response) => {
+        setIsUploading(false);
+        console.log(response);
         setImageUrl(response.fileUrl);
       })
       .catch((err) => console.log(err));
   };
 
-
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    const body = {
-      name,
-      email,
-      password,
-      bio,
-      cohort,
-      imageUrl,
-      cohortType,
-      campus,
-    };
+    if (isUploading) {
+      alert("Image still uploading");
+      return;
+    }
+    let body;
+    if(imageUrl){
+      body = {
+        name,
+        email,
+        password,
+        bio,
+        cohort,
+        imageUrl,
+        cohortType,
+        campus,
+      };
+    }else{
+      body = {
+        name,
+        email,
+        password,
+        bio,
+        cohort,
+        cohortType,
+        campus,
+      };
+    }
     axios
       .put(`${process.env.REACT_APP_API_URL}/user/${userId}`, body, {
         headers: {
@@ -135,21 +144,13 @@ function EditProfilePage() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="editProfileBody">
+      <form onSubmit={handleSubmit} className="editProfileForm">
         <label htmlFor="name">Name:</label>
         <input type="text" name="name" value={name} onChange={handleName} />
 
         <label htmlFor="email">Email address:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
-
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
 
         <label htmlFor="bio">Bio:</label>
         <textarea
@@ -180,11 +181,11 @@ function EditProfilePage() {
           id="cohortType"
           name="cohortType"
           /* value={cohortType} */
-          onChange={handleCohortType}
+          onClick={handleCohortType}
         >
-          <option value=""></option>
-          <option value="In person">In person</option>
-          <option value="Remote">Remote</option>
+          <option value="" selected={cohortType===""}></option>
+          <option value="In person" selected={cohortType==="In person"} >In person</option>
+          <option value="Remote" selected={cohortType==="Remote"} >Remote</option>
         </select>
 
         <label htmlFor="campus">Campus:</label>
@@ -192,25 +193,27 @@ function EditProfilePage() {
           id="campus"
           name="campus"
           /* value={campus} */
-          onChange={handleCampus}
+          onClick={handleCampus}
         >
-          <option value=""></option>
-          <option value="Lisbon">Lisbon</option>
-          <option value="Berlin">Berlin</option>
-          <option value="London">London</option>
-          <option value="Barcelona">Barcelona</option>
-          <option value="Madrid">Madrid</option>
-          <option value="Amsterdam">Amsterdam</option>
-          <option value="Miami">Miami</option>
-          <option value="New York City">New York City</option>
-          <option value="Tampa">Tampa</option>
-          <option value="Mexico City">Mexico City</option>
-          <option value="São Paulo">São Paulo</option>
+          <option value="" selected={campus===""} ></option>
+          <option value="Lisbon" selected={campus==="Lisbon"} >Lisbon</option>
+          <option value="Berlin" selected={campus==="Berlin"} >Berlin</option>
+          <option value="London" selected={campus==="Berlin"} >London</option>
+          <option value="Barcelona" selected={campus==="Barcelona"} >Barcelona</option>
+          <option value="Madrid" selected={campus==="Madrid"} >Madrid</option>
+          <option value="Amsterdam" selected={campus==="Amsterdam"} >Amsterdam</option>
+          <option value="Miami" selected={campus==="Miami"} >Miami</option>
+          <option value="New York City" selected={campus==="New York City"} >New York City</option>
+          <option value="Tampa" selected={campus==="Tampa"} >Tampa</option>
+          <option value="Mexico City" selected={campus==="Mexico City"} >Mexico City</option>
+          <option value="São Paulo" selected={campus==="São Paulo"} >São Paulo</option>
         </select>
 
         <button type="submit">Edit profile</button>
+        <button onClick={() => deleteUser(userId)} className="deleteProfileBtn">
+          Delete profile
+        </button>
       </form>
-      <button onClick={() => deleteUser(userId)}>Delete profile</button>
     </div>
   );
 }

@@ -39,9 +39,9 @@ function SignupPage() {
   };
 
   return (
-    <div>
+    <div className="signupBody">
       <h1>Signup</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="signupForm">
         <label htmlFor="username">Name*</label>
         <input
           type="text"

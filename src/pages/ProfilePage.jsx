@@ -26,22 +26,28 @@ const{userId}= useParams()
   }, [userId]);
 
 
-  return (<div>
+  return (<div className="profileBody">
     {thisUser && 
   <>
-  <div>
+  <div className="userDiv">
+  <div className="userPicDiv">
+
+   <img src={thisUser.imageUrl} alt="profile img" id="userPic"
+   />   
+  </div>
+  <div className="userInfoDiv">
    <h2>{thisUser.name}</h2>
    <h2>bio: {thisUser.bio}</h2>
    <h4>cohort: {thisUser.cohort}</h4>
    <h4>cohort type:{thisUser.cohortType}</h4>
    <h4>campus: {thisUser.campus}</h4>
-   <img src={thisUser.imageUrl} alt="profile img"
-   />   
 </div>
-<div>
+</div>
+<div className="thisUserGames">
+<h3>Submited Games</h3>
   {thisUser.games.map((userGame)=>{
     return(
-      <div key={userGame._id}>
+      <div key={userGame._id} className="eachSubmitedGame">
       <Link to={`/playing/${userGame._id}`}><p>{userGame.title}</p>
         <img src={userGame.imageUrl} alt="game-img"/></Link>
       

@@ -32,9 +32,9 @@ function LoginPage() {
   };
 
   return (
-    <div>
-      <h1>LoginPage</h1>
-      <form onSubmit={handleLoginSubmit}>
+    <div className="loginBody">
+      <h1>Login </h1>
+      <form onSubmit={handleLoginSubmit} className="loginForm">
         <label>Email address:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
 
@@ -47,11 +47,11 @@ function LoginPage() {
         />
 
         <button type="submit">Log in</button>
+      <p>Don't have an account yet?</p>
+      <Link to={"/signup"}>Sign Up</Link>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <p>Don't have an account yet?</p>
-      <Link to={"/signup"}>Sign Up</Link>
     </div>
   );
 }

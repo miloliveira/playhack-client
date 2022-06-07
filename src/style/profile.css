@@ -1,0 +1,55 @@
+.profileBody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.userDiv{
+    display: flex;
+    flex-direction: row;
+    border: 2px solid black;
+    width: 70vw;
+    margin: 20px;
+}
+
+.userPicDiv{
+    width: 40vw;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.userInfoDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40vh ;
+}
+#userPic{
+    max-width: 30vw;
+    max-height: 30vh;
+}
+.userInfoDiv h4, h2{
+    margin: 0;
+
+}
+
+.thisUserGames{
+    display: flex;
+    flex-direction: row;
+    border: 2px solid black;
+    width: 70vw;
+    height: 40vh;
+    overflow-x: scroll;
+    white-space: nowrap;
+    margin: 20px;
+}
+
+.eachSubmitedGame{
+    display: inline-block;
+    width: 20vw;
+    height: 20vh;
+    margin: 20px;
+}

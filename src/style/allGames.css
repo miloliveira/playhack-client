@@ -1,0 +1,19 @@
+.allGamesBody{
+    display: flex;
+flex-direction: column;
+justify-content: center;
+
+}
+
+.allGamesList{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+}
+
+.eachGame{
+    width: 20vw;
+    height: 50vh;
+}

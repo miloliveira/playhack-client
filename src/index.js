@@ -2,6 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import "../src/style/signup.css"
+import "../src/style/login.css"
+import "../src/style/allGames.css"
+import "../src/style/profile.css"
 import "./iframe.css"
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";

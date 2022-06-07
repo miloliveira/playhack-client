@@ -36,11 +36,11 @@ function AllGamesPage() {
   }, []);
 
   return (
-    <div>
+    <div className="allGamesBody">
       <Search gameSearch={gameSearch} />
-      {games && searchGames.map((game) => {
+      <div className="allGamesList">      {games && searchGames.map((game) => {
         return (
-          <div key={game._id}>
+          <div key={game._id} className="eachGame">
             <Link to={`/playing/${game._id}`}>
               <img src={game.imageUrl} alt="game thumbnail" />
               <h2>{game.title}</h2>
@@ -50,7 +50,8 @@ function AllGamesPage() {
             </Link>
           </div>
         );
-      })}
+      })}</div>
+
     </div>
   );
 }

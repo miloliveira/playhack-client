@@ -11,6 +11,8 @@ function GameDetailsPage() {
   const [game, setGame] = useState(null);
   const [isUpdated, setIsUpdated] = useState(true);
   const { gameId } = useParams();
+  const [isLiked, setIsLiked] = useState(false);
+  const getToken = localStorage.getItem("authToken");
 
   const getGame = async () => {
     try {
@@ -23,6 +25,36 @@ function GameDetailsPage() {
     }
   };
 
+  const likeGame = async (gameId) => {
+    try {
+      if (isLiked === false){
+        await axios.put(
+          `${process.env.REACT_APP_API_URL}/game/${gameId}/like`,
+          {
+            headers: {
+              Authorization: `Bearer ${getToken}`,
+              "Content-Type":"application/json"
+            },
+          }
+        )
+        setIsLiked(true)
+      } else {
+        await axios.put(
+          `${process.env.REACT_APP_API_URL}/game/${gameId}/dislike`,
+          {
+            headers: {
+              Authorization: `Bearer ${getToken}`,
+            },
+          }
+        )
+        setIsLiked(false)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+    
+  };
+
   useEffect(() => {
     getGame();
   }, [gameId]);
@@ -32,6 +64,9 @@ function GameDetailsPage() {
       {game && (
         <>
           <h2>{game.title}</h2>
+          <button onClick={() => likeGame(game._id)}>
+            like
+          </button>
           <Link to={`/profile/${game.user._id}`}>
             <h4>Submited by: {game.user.name}</h4>
           </Link>
@@ -53,8 +88,18 @@ function GameDetailsPage() {
             ></iframe>
           </div>
 
-          <ViewComments gameId={game._id} isUpdated={isUpdated} setIsUpdated={setIsUpdated} />
-          {isLoggedIn && <CreateComments gameId={game._id} isUpdated={isUpdated} setIsUpdated={setIsUpdated} />}
+          <ViewComments
+            gameId={game._id}
+            isUpdated={isUpdated}
+            setIsUpdated={setIsUpdated}
+          />
+          {isLoggedIn && (
+            <CreateComments
+              gameId={game._id}
+              isUpdated={isUpdated}
+              setIsUpdated={setIsUpdated}
+            />
+          )}
         </>
       )}
     </div>

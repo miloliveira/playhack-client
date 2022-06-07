@@ -2,13 +2,15 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+import service from "../api/service";
+
 function EditProfilePage() {
   const { userId } = useParams();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [bio, setBio] = useState("");
-
+  const [imageUrl, setImageUrl] = useState("");
   const [cohort, setCohort] = useState("");
   const [cohortType, setCohortType] = useState("");
   const [campus, setCampus] = useState("");
@@ -81,6 +83,19 @@ function EditProfilePage() {
     setCampus(e.target.value);
   };
 
+  const handleFileUpload = (e) => {
+    const uploadData = new FormData();
+
+    uploadData.append("imageUrl", e.target.files[0]);
+
+    service
+      .uploadImage(uploadData)
+      .then((response) => {
+        setImageUrl(response.fileUrl);
+      })
+      .catch((err) => console.log(err));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const body = {
@@ -89,6 +104,7 @@ function EditProfilePage() {
       password,
       bio,
       cohort,
+      imageUrl,
       cohortType,
       campus,
     };
@@ -137,6 +153,12 @@ function EditProfilePage() {
           value={bio}
           onChange={handleBio}
         ></textarea>
+
+        <input
+          type="file"
+          name="imageUrl"
+          onChange={(e) => handleFileUpload(e)}
+        />
 
         <label htmlFor="cohort">Cohort:</label>
         <input

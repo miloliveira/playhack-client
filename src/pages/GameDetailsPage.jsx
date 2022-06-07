@@ -29,23 +29,12 @@ function GameDetailsPage() {
     try {
       if (isLiked === false){
         await axios.put(
-          `${process.env.REACT_APP_API_URL}/game/${gameId}/like`,
-          {
-            headers: {
-              Authorization: `Bearer ${getToken}`,
-              "Content-Type":"application/json"
-            },
-          }
+          `${process.env.REACT_APP_API_URL}/game/${gameId}/like`
         )
         setIsLiked(true)
       } else {
         await axios.put(
-          `${process.env.REACT_APP_API_URL}/game/${gameId}/dislike`,
-          {
-            headers: {
-              Authorization: `Bearer ${getToken}`,
-            },
-          }
+          `${process.env.REACT_APP_API_URL}/game/${gameId}/dislike`
         )
         setIsLiked(false)
       }

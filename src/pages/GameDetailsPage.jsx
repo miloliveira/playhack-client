@@ -20,41 +20,74 @@ function GameDetailsPage() {
         `${process.env.REACT_APP_API_URL}/game/${gameId}`
       );
       setGame(response.data);
+      console.log(response.data.likes.includes(user._id));
+      if (response.data.likes.includes(user._id)) {
+        setIsLiked(true);
+      } else {
+        setIsLiked(false);
+      }
     } catch (error) {
       console.log(error);
     }
   };
 
-  const likeGame = (gameId) => {
+  const likeGame = async (gameId) => {
     if (isLiked === false) {
-      axios.put(`${process.env.REACT_APP_API_URL}/game/${gameId}/like`, {
-        headers: {
-          Authorization: `Bearer ${getToken}`,
-        },
-      });
+      await axios.put(
+        `${process.env.REACT_APP_API_URL}/game/${gameId}/like`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${getToken}`,
+          },
+        }
+      );
       setIsLiked(true);
     } else {
-      axios.put(`${process.env.REACT_APP_API_URL}/game/${gameId}/dislike`, {
-        headers: {
-          Authorization: `Bearer ${getToken}`,
-        },
-      });
+      await axios.put(
+        `${process.env.REACT_APP_API_URL}/game/${gameId}/dislike`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${getToken}`,
+          },
+        }
+      );
       setIsLiked(false);
     }
+    getGame();
   };
 
   useEffect(() => {
     getGame();
   }, [gameId]);
 
+  function disable() {
+    // To get the scroll position of current webpage
+    let TopScroll = window.pageYOffset || document.documentElement.scrollTop;
+    let LeftScroll = window.pageXOffset || document.documentElement.scrollLeft;
+
+    // if scroll happens, set it to the previous value
+    window.onscroll = function () {
+      window.scrollTo(LeftScroll, TopScroll);
+    };
+  }
+
+  function enable() {
+    window.onscroll = function () {};
+  }
+
   return (
     <div className="gameDetailsBody">
       {game && (
         <>
           <h2>{game.title}</h2>
-          {user &&  <button onClick={() => likeGame(game._id)}>like</button> }
-         
-         
+          {user && (
+            <button onClick={() => likeGame(game._id)}>
+              {isLiked ? "dislike" : "like"}
+            </button>
+          )}
+
           <Link to={`/profile/${game.user._id}`}>
             <h4>Submited by: {game.user.name}</h4>
           </Link>
@@ -73,6 +106,8 @@ function GameDetailsPage() {
               id="scaled-frame"
               src={game.gameUrl}
               title={game.title}
+              onMouseOver ={() => disable()}
+              onMouseOut ={() => enable()}
             ></iframe>
           </div>
 

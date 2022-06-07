@@ -5,6 +5,9 @@ import "../src/style/signup.css"
 import "../src/style/login.css"
 import "../src/style/allGames.css"
 import "../src/style/profile.css"
+import "../src/style/editProfile.css"
+import "../src/style/editGame.css"
+import "../src/style/submitGame.css"
 import "./iframe.css"
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";

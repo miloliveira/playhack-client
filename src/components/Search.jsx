@@ -13,7 +13,9 @@ gameSearch(e.target.value)
   return (
     <div>
     
-    <input type="text" value={search} onChange={handleSearch}/>
+    <input type="text" value={search} onChange={handleSearch}
+      placeholder="Search Bar"
+    />
     </div>
   )
 }

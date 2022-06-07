@@ -49,20 +49,20 @@ const{userId}= useParams()
     return(
       <div key={userGame._id} className="eachSubmitedGame">
       <Link to={`/playing/${userGame._id}`}><p>{userGame.title}</p>
-        <img src={userGame.imageUrl} alt="game-img"/></Link>
+        <img src={userGame.imageUrl} alt="game-img" className="submitedGamePic" /></Link>
       
-      {user._id === userId && 
+      {(user && user._id === userId) && 
       <Link to={`/edit-game/${userGame._id}`}><button>Edit</button></Link>}
       </div>
     )
   })}
 </div>
-<div>
-
+<div className="likedGamesDiv">
+<h3>Liked Games</h3>
 {thisUser.likedGames.map((likedGame)=>{
     return(
-      <div key={likedGame._id}>
-        <img src={likedGame.thumbnail} alt="game-img"/>
+      <div key={likedGame._id} className="eachLikedGame" >
+        <Link to={`/playing/${likedGame._id}`}><img src={likedGame.imageUrl} alt="game-img" className="likedGamePic" /></Link>
       </div>
     )
   })}

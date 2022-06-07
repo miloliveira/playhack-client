@@ -14,6 +14,7 @@ function ViewComments(props) {
         `${process.env.REACT_APP_API_URL}/game/${gameId}/comments`
       );
       setCommentList(response.data);
+      console.log(response.data)
       setIsUpdated(true)
     } catch (error) {
       console.log(error);
@@ -46,7 +47,7 @@ console.log(commentList)
               </Link> */}
               <p>{comment.content}</p>
               <Link to={`/profile/${comment.user._id}`}><p>{comment.user.name}</p></Link>
-              {user._id === comment.user._id && (
+              {(user && user._id === comment.user._id) && (
                 <button onClick={() => deleteComment(comment._id)}>
                   Delete
                 </button>

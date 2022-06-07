@@ -68,9 +68,9 @@ function SubmitGamePage() {
   };
 
   return (
-    <div>
+    <div className="submitGameBody">
       SubmitGamePage
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="submitGameForm">
         <label htmlFor="title">Title*</label>
         <input type="text" value={title} name="title" onChange={handleTitle} />
 
@@ -98,7 +98,7 @@ function SubmitGamePage() {
         />
 
         <label htmlFor="category">Category:</label>
-
+<div>
         <input
           type="checkbox"
           value="Action"
@@ -162,7 +162,7 @@ function SubmitGamePage() {
           onClick={handleCategory}
         />
         <label htmlFor="Other">Other</label>
-
+</div>
         <button type="submit">Submit your game</button>
       </form>
       {errorMessage && <p>{errorMessage}</p>}

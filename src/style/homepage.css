@@ -1,0 +1,23 @@
+.homePageBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #202137;
+
+}
+
+.bgVideo {
+  background-image: url("https://i.ibb.co/zS6b40Z/ezgif-1-db22cea6c4.gif");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+
+}
+
+.mostPlayedGames,
+.mostLikedGames {
+  display: flex;
+  flex-direction: row;
+
+}

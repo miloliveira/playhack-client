@@ -8,6 +8,7 @@ import "../src/style/profile.css"
 import "../src/style/editProfile.css"
 import "../src/style/editGame.css"
 import "../src/style/submitGame.css"
+import "../src/style/homepage.css"
 import "./iframe.css"
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";

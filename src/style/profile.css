@@ -18,8 +18,7 @@
 .userDiv {
   display: flex;
   flex-direction: column;
-  border: 2px solid black;
-  border-radius: 50px;
+  
   width: 320px;
   min-height: 500px;
 }
@@ -72,51 +71,81 @@
 .thisUserGames {
   display: flex;
   flex-direction: column;
-  border: 2px solid black;
-  border-radius: 50px;
+  
   width: 500px;
   max-height: 500px;
-  overflow-x: scroll;
+  overflow-y: scroll;
   white-space: nowrap;
   align-items: center;
 }
 
 .allSubmitedGmes {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+}
+
+.eachSubmitedGameDiv {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  height: 150px;
+  margin-bottom: 20px;
 }
 
 .eachSubmitedGame {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   max-width: 400px;
-  height: 270px;
-  margin-bottom: 20px;
+  height: 150px;
+  background-color: #363636;
+  border-radius: 10px;
+}
+
+.submitedGameInfoDiv {
+  width: 400px;
+  min-height: 100px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.submitedGameInfoInnerDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 210px;
 }
 
 .thisUserGameCat {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 400px;
+  max-width: 400px;
 }
 
 .thisUserGameCat p {
-  margin-right: 20px;
+  margin-right: 15px;
   border: 2px solid #2f063d;
   background-color: #2f063d;
   border-radius: 15px;
   padding-left: 10px;
   padding-right: 10px;
-
+  margin-top: 2px;
+  margin-bottom: 2px;
   color: white;
   font-size: small;
   text-align: center;
 }
 
 .submitedGamePic {
-  max-width: 20vw;
-  max-height: 20vh;
+  width: 150px;
+  height: 150px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  object-fit: cover;
+  object-position: 50% 50%;
 }
 
 /* LIKED GAMES*/
@@ -124,8 +153,7 @@
 .likedGamesDiv {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  border: 2px solid black;
+
   border-radius: 50px;
   width: 880px;
   height: 250px;
@@ -133,35 +161,101 @@
   margin-bottom: 40px;
 }
 
+.likedGamesDiv h4 {
+  margin-top: 20px;
+  margin-left: 40px;
+}
+
 .allLikedGames {
   display: flex;
   flex-direction: row;
-
-  width: 880px;
+  width: 850px;
   height: 200px;
   overflow-x: scroll;
   white-space: nowrap;
-  margin: 0;
+  margin-left: 20px;
   align-items: center;
 }
 
 .eachLikedGame {
-  width: 50px;
-  height: 50px;
+  width: 140px;
+  height: 160px;
   margin-right: 20px;
-  margin-left: 40px;
+  margin-left: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .eachLikedGameLink {
   text-decoration: none;
   font-size: 14px;
   text-align: center;
+  background-color: #363636;
+  border-radius: 10px;
+  color: white;
+  text-align: left;
+  height: 160px;
+  width: 140px;
+  margin: 0;
+}
+
+.eachLikedGamePDiv p {
+  width: 140px;
+  
+  text-align: center;
+  
 }
 
 .likedGamePic {
-  min-width: 50px;
-  max-height: 50px;
+  width: 140px;
+  height: 100px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: cover;
+  object-position: 50% 50%;
 }
+
+/* LIKED GAMES SCROLL BAR */
+.allLikedGames::-webkit-scrollbar {
+  height: 10px;
+}
+
+.allLikedGames::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  border-radius: 10px;
+}
+
+.allLikedGames::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color:  white;
+  border: 1px solid #363636; 
+}
+.allLikedGames::-webkit-scrollbar-track-piece{
+  background-color: rgba(0, 0, 0, 0.353) ;
+  border-radius: 10px;
+}
+
+/* SUBMITED GAMES SCROLL BAR */
+
+.thisUserGames::-webkit-scrollbar {
+  width: 10px;
+}
+
+.thisUserGames::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  border-radius: 10px;
+}
+
+.thisUserGames::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color:  white;
+  border: 1px solid #363636; 
+
+}
+.thisUserGames::-webkit-scrollbar-track-piece{
+  background-color: rgba(0, 0, 0, 0.353) ;
+  border-radius: 10px;
+}
+

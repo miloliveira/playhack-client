@@ -60,26 +60,32 @@ function ProfilePage() {
               <div className="allThisUserGames">
                 {thisUser.games.map((userGame) => {
                   return (
-                    <div key={userGame._id} className="eachSubmitedGame">
-                      <Link to={`/playing/${userGame._id}`}>
-                        <img
-                          src={userGame.imageUrl}
-                          alt="game-img"
-                          className="submitedGamePic"
-                        />
-                      </Link>
-                      <p>{userGame.title}</p>
-
-                      <div className="thisUserGameCat">
-                        {userGame.category.map((cat) => (
-                          <p key={cat}>{cat}</p>
-                        ))}
-                      </div>
-                      {user && user._id === userId && (
-                        <Link to={`/edit-game/${userGame._id}`}>
-                          <button>Edit</button>
+                    <div key={userGame._id} className="eachSubmitedGameDiv">
+                      <div className="eachSubmitedGame">
+                        <Link to={`/playing/${userGame._id}`}>
+                          <img
+                            src={userGame.imageUrl}
+                            alt="game-img"
+                            className="submitedGamePic"
+                          />
                         </Link>
-                      )}
+                        <div className="submitedGameInfoDiv">
+                          <div className="submitedGameInfoInnerDiv">
+                            <p>{userGame.title}</p>
+
+                            {user && user._id === userId && (
+                              <Link to={`/edit-game/${userGame._id}`}>
+                                <button>Edit</button>
+                              </Link>
+                            )}
+                          </div>
+                          <div className="thisUserGameCat">
+                            {userGame.category.map((cat) => (
+                              <p key={cat}>{cat}</p>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   );
                 })}
@@ -101,7 +107,9 @@ function ProfilePage() {
                         alt="game-img"
                         className="likedGamePic"
                       />
+                      <div className="eachLikedGamePDiv">
                       <p>{likedGame.title}</p>
+                      </div>
                     </Link>
                   </div>
                 );

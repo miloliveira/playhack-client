@@ -6,10 +6,6 @@ align-items: center;
 }
 
 
-.searchComponent{
-    margin: 30px;
-}
-
 
 .allGamesList{
     display: flex;
@@ -17,8 +13,8 @@ align-items: center;
     flex-wrap: wrap;
    justify-content: center;
    align-items: center;
-   
-   width: 80vw;
+   width: 960px;
+   margin-bottom: 40px;
 }
 
 .eachGame{
@@ -38,6 +34,8 @@ align-items: center;
     height: 20px;
     border-radius: 15px;
     margin-right: 5px;
+    object-fit: cover;
+    object-position: 50% 50%;
 }
 
 .gameUserInfoLink{
@@ -59,7 +57,7 @@ text-align: left;
 color: white;
 
 }
-.eachGameLink h4{
+.eachGameLink h5{
     margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -81,5 +79,36 @@ color: white;
     height: 150px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+/* SEARCH BAR */
+
+.searchComponent{
+    margin-top: 50px;
+    margin-bottom: 30px;
+    width: 930px;
+}
+
+.searchBarDiv{
+    width: 910px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+height: 40px;
+border-radius: 25px;
+padding-left: 20px;
 
 }
+.searchBarDiv input{
+border: none;
+outline: none;
+width: 850px;
+}
+.searchBarDiv input:active{
+    border: none;
+    outline: none;
+    }

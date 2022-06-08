@@ -46,7 +46,7 @@ function AllGamesPage() {
             <div className="eachGameThumbnailDiv">
               <img src={game.imageUrl} alt="game thumbnail" id="eachGameThumbnail"  />
               </div>
-              <h4>{game.title}</h4>
+              <h5>{game.title}</h5>
             </Link>
             <Link to={`/profile/${game.user._id}`} className="gameUserInfoLink">
             

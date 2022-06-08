@@ -55,67 +55,72 @@ function ProfilePage() {
                 </div>
               </div>
             </div>
-            <div className="thisUserGames">
-              <h3>Submited Games</h3>
-              <div className="allThisUserGames">
-                {thisUser.games.map((userGame) => {
-                  return (
-                    <div key={userGame._id} className="eachSubmitedGameDiv">
-                      <div className="eachSubmitedGame">
-                        <Link to={`/playing/${userGame._id}`}>
-                          <img
-                            src={userGame.imageUrl}
-                            alt="game-img"
-                            className="submitedGamePic"
-                          />
-                        </Link>
-                        <div className="submitedGameInfoDiv">
-                          <div className="submitedGameInfoInnerDiv">
-                            <p>{userGame.title}</p>
 
-                            {user && user._id === userId && (
-                              <Link to={`/edit-game/${userGame._id}`}>
-                                <button>Edit</button>
-                              </Link>
-                            )}
-                          </div>
-                          <div className="thisUserGameCat">
-                            {userGame.category.map((cat) => (
-                              <p key={cat}>{cat}</p>
-                            ))}
+            {thisUser.games.length > 0 && (
+              <div className="thisUserGames">
+                <h3>Submited Games</h3>
+                <div className="allThisUserGames">
+                  {thisUser.games.map((userGame) => {
+                    return (
+                      <div key={userGame._id} className="eachSubmitedGameDiv">
+                        <div className="eachSubmitedGame">
+                          <Link to={`/playing/${userGame._id}`}>
+                            <img
+                              src={userGame.imageUrl}
+                              alt="game-img"
+                              className="submitedGamePic"
+                            />
+                          </Link>
+                          <div className="submitedGameInfoDiv">
+                            <div className="submitedGameInfoInnerDiv">
+                              <p>{userGame.title}</p>
+
+                              {user && user._id === userId && (
+                                <Link to={`/edit-game/${userGame._id}`}>
+                                  <button>Edit</button>
+                                </Link>
+                              )}
+                            </div>
+                            <div className="thisUserGameCat">
+                              {userGame.category.map((cat) => (
+                                <p key={cat}>{cat}</p>
+                              ))}
+                            </div>
                           </div>
                         </div>
                       </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+          {thisUser.likedGames.length > 0 && (
+            <div className="likedGamesDiv">
+              <h4>The ones you like</h4>
+              <div className="allLikedGames">
+                {thisUser.likedGames.map((likedGame) => {
+                  return (
+                    <div key={likedGame._id} className="eachLikedGame">
+                      <Link
+                        to={`/playing/${likedGame._id}`}
+                        className="eachLikedGameLink"
+                      >
+                        <img
+                          src={likedGame.imageUrl}
+                          alt="game-img"
+                          className="likedGamePic"
+                        />
+                        <div className="eachLikedGamePDiv">
+                          <p>{likedGame.title}</p>
+                        </div>
+                      </Link>
                     </div>
                   );
                 })}
               </div>
             </div>
-          </div>
-          <div className="likedGamesDiv">
-            <h4>The ones you like</h4>
-            <div className="allLikedGames">
-              {thisUser.likedGames.map((likedGame) => {
-                return (
-                  <div key={likedGame._id} className="eachLikedGame">
-                    <Link
-                      to={`/playing/${likedGame._id}`}
-                      className="eachLikedGameLink"
-                    >
-                      <img
-                        src={likedGame.imageUrl}
-                        alt="game-img"
-                        className="likedGamePic"
-                      />
-                      <div className="eachLikedGamePDiv">
-                      <p>{likedGame.title}</p>
-                      </div>
-                    </Link>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+          )}
         </>
       )}
     </div>

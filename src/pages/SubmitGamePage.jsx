@@ -10,6 +10,7 @@ function SubmitGamePage() {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState([]);
   const [imageUrl, setImageUrl] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
   const getToken = localStorage.getItem("authToken");
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -28,29 +29,27 @@ function SubmitGamePage() {
     setCategory([...category, e.target.value]);
   };
 
-
-
-
   const handleFileUpload = (e) => {
     const uploadData = new FormData();
-
+    setIsUploading(true);
     uploadData.append("imageUrl", e.target.files[0]);
 
     service
       .uploadImage(uploadData)
       .then((response) => {
+        setIsUploading(false);
         setImageUrl(response.fileUrl);
       })
       .catch((err) => console.log(err));
   };
 
-
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!title || !description || !gameUrl || !category) return;
-
+    if (isUploading) {
+      alert("Image still uploading");
+      return;
+    }
     const body = { title, description, gameUrl, imageUrl, category };
 
     axios
@@ -69,100 +68,122 @@ function SubmitGamePage() {
 
   return (
     <div className="submitGameBody">
-      SubmitGamePage
       <form onSubmit={handleSubmit} className="submitGameForm">
-        <label htmlFor="title">Title*</label>
-        <input type="text" value={title} name="title" onChange={handleTitle} />
+        <h4>Submit your game</h4>
+        <div className="submitGameFormInnerDiv">
+          <div className="submitGameFormDiv1">
+            <label htmlFor="title">Title*</label>
+            <input
+              type="text"
+              value={title}
+              name="title"
+              onChange={handleTitle}
+            />
+            <div className="submitGameCatDiv">
+              <label htmlFor="category">Category:</label>
+              <div className="submitGameCategories">
+                <label htmlFor="Action">Action</label>
+                <input
+                  type="checkbox"
+                  value="Action"
+                  name="category"
+                  onClick={handleCategory}
+                />
 
-        <label htmlFor="description">description:</label>
-        <textarea
-          name="description"
-          cols="30"
-          rows="10"
-          value={description}
-          onChange={handleDescription}
-        ></textarea>
+                <label htmlFor="Arcade">Arcade</label>
+                <input
+                  type="checkbox"
+                  value="Arcade"
+                  name="category"
+                  onClick={handleCategory}
+                />
 
-        <label htmlFor="gameUrl">GameUrl*</label>
-        <input
-          type="text"
-          value={gameUrl}
-          name="gameUrl"
-          onChange={handleGameUrl}
-        />
+                <label htmlFor="Adventure">Adventure</label>
+                <input
+                  type="checkbox"
+                  value="Adventure"
+                  name="category"
+                  onClick={handleCategory}
+                />
 
-        <input
-          type="file"
-          name="imageUrl"
-          onChange={(e) => handleFileUpload(e)}
-        />
+                <label htmlFor="Racing">Racing</label>
+                <input
+                  type="checkbox"
+                  value="Racing"
+                  name="category"
+                  onClick={handleCategory}
+                />
 
-        <label htmlFor="category">Category:</label>
-<div>
-        <input
-          type="checkbox"
-          value="Action"
-          name="category"
-          onClick={handleCategory}
-        />
-        <label htmlFor="Action">Action</label>
+                <label htmlFor="Puzzle">Puzzle</label>
+                <input
+                  type="checkbox"
+                  value="Puzzle"
+                  name="category"
+                  onClick={handleCategory}
+                />
 
-        <input
-          type="checkbox"
-          value="Arcade"
-          name="category"
-          onClick={handleCategory}
-        />
-        <label htmlFor="Arcade">Arcade</label>
+                <label htmlFor="Shooting">Shooting</label>
+                <input
+                  type="checkbox"
+                  value="Shooting"
+                  name="category"
+                  onClick={handleCategory}
+                />
 
-        <input
-          type="checkbox"
-          value="Adventure"
-          name="category"
-          onClick={handleCategory}
-        />
-        <label htmlFor="Adventure">Adventure</label>
+                <label htmlFor="Sports">Sports</label>
+                <input
+                  type="checkbox"
+                  value="Sports"
+                  name="category"
+                  onClick={handleCategory}
+                />
 
-        <input
-          type="checkbox"
-          value="Racing"
-          name="category"
-          onClick={handleCategory}
-        />
-        <label htmlFor="Racing">Racing</label>
+                <label htmlFor="Other">Other</label>
+                <input
+                  type="checkbox"
+                  value="Other"
+                  name="category"
+                  onClick={handleCategory}
+                />
+              </div>
+            </div>
+            <label htmlFor="description">Description*</label>
+            <textarea
+              name="description"
+              cols="30"
+              rows="10"
+              value={description}
+              onChange={handleDescription}
+            ></textarea>
+          </div>
 
-        <input
-          type="checkbox"
-          value="Puzzle"
-          name="category"
-          onClick={handleCategory}
-        />
-        <label htmlFor="Puzzle">Puzzle</label>
+          <div className="submitGameFormDiv2">
+            <label htmlFor="gameUrl">Game Url*</label>
+            <input
+              type="text"
+              value={gameUrl}
+              name="gameUrl"
+              onChange={handleGameUrl}
+            />
 
-        <input
-          type="checkbox"
-          value="Shooting"
-          name="category"
-          onClick={handleCategory}
-        />
-        <label htmlFor="Shooting">Shooting</label>
+            <label htmlFor="imageUrl">Game thumbnail*</label>
 
-        <input
-          type="checkbox"
-          value="Sports"
-          name="category"
-          onClick={handleCategory}
-        />
-        <label htmlFor="Sports">Sports</label>
-
-        <input
-          type="checkbox"
-          value="Other"
-          name="category"
-          onClick={handleCategory}
-        />
-        <label htmlFor="Other">Other</label>
-</div>
+            {imageUrl && (
+              <div className="thumbnailPreviewDiv">
+                <img
+                  src={imageUrl}
+                  alt="thumbnail preview"
+                  className="thumbnailPreview"
+                />
+              </div>
+            )}
+            <input
+              type="file"
+              name="imageUrl"
+              onChange={(e) => handleFileUpload(e)}
+            />
+          </div>
+        </div>
         <button type="submit">Submit your game</button>
       </form>
       {errorMessage && <p>{errorMessage}</p>}

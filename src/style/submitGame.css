@@ -1,15 +1,73 @@
-.submitGameForm{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid black;
-    border-radius: 15px;
-    width: 50vw;
+.submitGameBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-.submitGameBody{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+
+.submitGameForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  border-radius: 15px;
+  width: 960px;
+  height: 500px;
+  margin-top: 40px;
+}
+
+.submitGameFormInnerDiv {
+  display: flex;
+  flex-direction: row;
+  width: 960px;
+  justify-content: space-evenly;
+  margin-bottom: 40px;
+}
+
+.submitGameFormDiv1 {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  margin: 0;
+}
+
+.submitGameFormDiv1 label {
+  margin-top: 20px;
+}
+
+.submitGameFormDiv2 {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0;
+}
+
+.submitGameFormDiv2 label {
+  margin-top: 20px;
+}
+
+.submitGameCatDiv {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 600px;
+}
+.submitGameCategories {
+  font-size: 14px;
+}
+
+.thumbnailPreviewDiv {
+  height: 200px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thumbnailPreview {
+  object-fit: cover;
+  object-position: 50% 50%;
+  width: 300px;
+  height: 200px;
 }

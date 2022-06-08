@@ -85,7 +85,7 @@ function EditGamePage() {
       return;
     }
     let body;
-    if(imageUrl){
+    if (imageUrl) {
       body = {
         title,
         gameUrl,
@@ -93,7 +93,7 @@ function EditGamePage() {
         imageUrl,
         category,
       };
-    }else{
+    } else {
       body = {
         title,
         gameUrl,

@@ -106,7 +106,7 @@ function EditProfilePage() {
       return;
     }
     let body;
-    if(imageUrl){
+    if (imageUrl) {
       body = {
         name,
         email,
@@ -118,7 +118,7 @@ function EditProfilePage() {
         github,
         campus,
       };
-    }else{
+    } else {
       body = {
         name,
         email,
@@ -142,8 +142,8 @@ function EditProfilePage() {
         setPassword("");
         setBio("");
         setCohort("");
-        setLinkedin("")
-        setGithub("")
+        setLinkedin("");
+        setGithub("");
         setCampus("");
         navigate(`/profile/${userId}`);
       })
@@ -183,7 +183,7 @@ function EditProfilePage() {
           onChange={handleCohort}
         />
 
-<label htmlFor="linkedin">Linkedin:</label>
+        <label htmlFor="linkedin">Linkedin:</label>
         <input
           type="text"
           name="linkedin"
@@ -205,18 +205,40 @@ function EditProfilePage() {
           /* value={campus} */
           onClick={handleCampus}
         >
-          <option value="" selected={campus===""} ></option>
-          <option value="Lisbon" selected={campus==="Lisbon"} >Lisbon</option>
-          <option value="Berlin" selected={campus==="Berlin"} >Berlin</option>
-          <option value="London" selected={campus==="Berlin"} >London</option>
-          <option value="Barcelona" selected={campus==="Barcelona"} >Barcelona</option>
-          <option value="Madrid" selected={campus==="Madrid"} >Madrid</option>
-          <option value="Amsterdam" selected={campus==="Amsterdam"} >Amsterdam</option>
-          <option value="Miami" selected={campus==="Miami"} >Miami</option>
-          <option value="New York City" selected={campus==="New York City"} >New York City</option>
-          <option value="Tampa" selected={campus==="Tampa"} >Tampa</option>
-          <option value="Mexico City" selected={campus==="Mexico City"} >Mexico City</option>
-          <option value="São Paulo" selected={campus==="São Paulo"} >São Paulo</option>
+          <option value="" selected={campus === ""}></option>
+          <option value="Lisbon" selected={campus === "Lisbon"}>
+            Lisbon
+          </option>
+          <option value="Berlin" selected={campus === "Berlin"}>
+            Berlin
+          </option>
+          <option value="London" selected={campus === "Berlin"}>
+            London
+          </option>
+          <option value="Barcelona" selected={campus === "Barcelona"}>
+            Barcelona
+          </option>
+          <option value="Madrid" selected={campus === "Madrid"}>
+            Madrid
+          </option>
+          <option value="Amsterdam" selected={campus === "Amsterdam"}>
+            Amsterdam
+          </option>
+          <option value="Miami" selected={campus === "Miami"}>
+            Miami
+          </option>
+          <option value="New York City" selected={campus === "New York City"}>
+            New York City
+          </option>
+          <option value="Tampa" selected={campus === "Tampa"}>
+            Tampa
+          </option>
+          <option value="Mexico City" selected={campus === "Mexico City"}>
+            Mexico City
+          </option>
+          <option value="São Paulo" selected={campus === "São Paulo"}>
+            São Paulo
+          </option>
         </select>
 
         <button type="submit">Edit profile</button>

@@ -42,12 +42,17 @@ function AllGamesPage() {
       <div className="allGamesList">      {games && searchGames.map((game) => {
         return (
           <div key={game._id} className="eachGame">
-            <Link to={`/playing/${game._id}`}>
-              <img src={game.imageUrl} alt="game thumbnail" />
-              <h2>{game.title}</h2>
+            <Link to={`/playing/${game._id}`} className="eachGameLink">
+            <div className="eachGameThumbnailDiv">
+              <img src={game.imageUrl} alt="game thumbnail" id="eachGameThumbnail"  />
+              </div>
+              <h4>{game.title}</h4>
             </Link>
-            <Link to={`/profile/${game.user._id}`}>
-              <h3>user name here:{game.user.name}</h3>
+            <Link to={`/profile/${game.user._id}`} className="gameUserInfoLink">
+            
+            <img src={game.user.imageUrl} alt="user profile pic" id="GameUserProfilePic" />
+              <p>{game.user.name}</p>
+              
             </Link>
           </div>
         );

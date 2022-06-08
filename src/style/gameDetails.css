@@ -1,0 +1,79 @@
+.gameDetailsBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* GAME INFO DIV*/
+
+.gameDetailsDiv {
+  margin-top: 40px;
+  width: 960px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+/* GAME INFO */
+.innerDivGameInfo {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+}
+
+.gameCreatorLink {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+}
+
+.gameCats {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.gameCats p {
+  border: 2px solid #2f063d;
+  background-color: #2f063d;
+  border-radius: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 5px;
+  color: white;
+  font-size: small;
+  text-align: center;
+}
+
+.gameDescriptionP {
+  margin-top: 0;
+}
+
+/* GAME BUTTONS */
+.gameButtons {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.fullScreenBtn{
+    height: 30px;
+    border: 2px solid #2f063d;
+    background-color: #2f063d;
+    border-radius: 15px;
+    padding: 2px 15px;
+    
+    
+}
+
+.fullScreenBtn a{
+    text-decoration: none;
+    color: white;
+}
+
+.gameComments{
+    width: 600px;
+}

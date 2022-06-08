@@ -80,39 +80,43 @@ function GameDetailsPage() {
   return (
     <div className="gameDetailsBody">
       {game && (
-        <>
+        <div className="gameDetailsDiv">
           <h2>{game.title}</h2>
-          {user && (
-            <button onClick={() => likeGame(game._id)}>
-              {isLiked ? "dislike" : "like"}
-            </button>
-          )}
+          <div className="innerDivGameInfo">
+            <Link to={`/profile/${game.user._id}`} className="gameCreatorLink">
+              <h4>by {game.user.name}</h4>
+            </Link>
+            <div className="gameCats">
+              {game.category.map((cat) => (
+                <p key={cat}>{cat}</p>
+              ))}
+            </div>
+          </div>
+          
+          <p className="gameDescriptionP">{game.description}</p>
 
-          <Link to={`/profile/${game.user._id}`}>
-            <h4>Submited by: {game.user.name}</h4>
-          </Link>
-          <p>{game.description}</p>
-          {game.category.map((cat) => (
-            <p key={cat}>{cat}</p>
-          ))}
-
-          <button>
-            <a href={game.gameUrl} target="_blank" rel="noreferrer">
-              Play in full screen
-            </a>
-          </button>
           <div id="wrapper">
             <iframe
               id="scaled-frame"
               src={game.gameUrl}
               title={game.title}
-              onMouseOver ={() => disable()}
-              onMouseOut ={() => enable()}
+              onMouseOver={() => disable()}
+              onMouseOut={() => enable()}
             ></iframe>
           </div>
-
-
-
+          <div className="gameButtons">
+            <button className="fullScreenBtn">
+              <a href={game.gameUrl} target="_blank" rel="noreferrer">
+                Play in full screen
+              </a>
+            </button>
+            {user && (
+              <button onClick={() => likeGame(game._id)} className="likeBtn">
+                {isLiked ? "dislike" : "like"}
+              </button>
+            )}
+          </div>
+<div className="gameComments">
           <ViewComments
             gameId={game._id}
             isUpdated={isUpdated}
@@ -125,7 +129,9 @@ function GameDetailsPage() {
               setIsUpdated={setIsUpdated}
             />
           )}
-        </>
+          </div>
+
+        </div>
       )}
     </div>
   );

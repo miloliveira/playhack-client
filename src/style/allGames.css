@@ -2,8 +2,14 @@
     display: flex;
 flex-direction: column;
 justify-content: center;
-
+align-items: center;
 }
+
+
+.searchComponent{
+    margin: 30px;
+}
+
 
 .allGamesList{
     display: flex;
@@ -11,14 +17,69 @@ justify-content: center;
     flex-wrap: wrap;
    justify-content: center;
    align-items: center;
-   margin-top: 30px;
+   
+   width: 80vw;
 }
 
 .eachGame{
-    width: 20vw;
-    height: 50vh;
+    width: 200px;
+    height: 225px;
+   margin: 20px;
+   padding: 0;
+    display: flex;
+   align-items: flex-start;
+    flex-direction: column;
+    background-color: #2F063D;
+    border-radius: 10px;
 }
 
-.searchComponent{
-    margin: 30px;
+#GameUserProfilePic{
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    margin-right: 5px;
+}
+
+.gameUserInfoLink{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    width: 200px ;
+    height: 30px;
+    font-size: smaller;
+    margin-left: 10px;
+    color: white;
+}
+
+
+.eachGameLink{
+text-decoration: none;
+text-align: left;
+color: white;
+
+}
+.eachGameLink h4{
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 15px;
+    }
+
+
+.eachGameThumbnailDiv{
+    width: 200px;
+    height: 150px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+
+#eachGameThumbnail{
+    width: 200px;
+    height: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
 }

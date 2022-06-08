@@ -33,13 +33,11 @@ function Comments(props) {
 
 
     return (
-    <div>
-<form onSubmit={handleSubmit}>
-
-
+    <div className="createCommentDiv">
+<form onSubmit={handleSubmit} className="createCommentForm" >
         <textarea
           name="content"
-          cols="50"
+          cols="20"
           rows="5"
           value={content}
           onChange={handleContent}

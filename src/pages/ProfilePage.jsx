@@ -1,20 +1,21 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
-import { AuthContext } from '../context/auth.context';
+import { AuthContext } from "../context/auth.context";
 function ProfilePage() {
-
-  const { isLoggedIn, user}= useContext(AuthContext);
+  const { isLoggedIn, user } = useContext(AuthContext);
   const [thisUser, setThisUser] = useState(null);
-const{userId}= useParams()
+  const { userId } = useParams();
   const getUser = async () => {
     try {
       /* const getToken = localStorage.getItem("authToken"); */
-      let response = await axios.get(`${process.env.REACT_APP_API_URL}/user/${userId}`/* , {
+      let response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/user/${userId}` /* , {
         headers: {
           Authorization: `Bearer ${getToken}`,
         },
-      } */);
+      } */
+      );
       setThisUser(response.data);
     } catch (error) {
       console.log(error);
@@ -25,62 +26,92 @@ const{userId}= useParams()
     getUser();
   }, [userId]);
 
+  return (
+    <div className="profileBody">
+      {thisUser && (
+        <>
+          <div className="profileUpperDiv">
+            <div className="userDiv">
+              <div className="userPicDiv">
+                <img
+                  src={thisUser.imageUrl}
+                  alt="profile img"
+                  id="userProfilePic"
+                />
+              </div>
+              <div className="userInfoDiv">
+                <h4>{thisUser.name}</h4>
+                <p>{thisUser.cohort}</p>
+                <p>{thisUser.campus}</p>
+                <p className="userBioP">{thisUser.bio}</p>
 
-  return (<div className="profileBody">
-    {thisUser && 
-  <>
-  <div className="userDiv">
-  <div className="userPicDiv">
+                <div className="userAccountsLinks">
+                  <a href={thisUser.linkedin} target="_blank" rel="noreferrer">
+                    Linkedin
+                  </a>
+                  <a href={thisUser.github} target="_blank" rel="noreferrer">
+                    Github
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="thisUserGames">
+              <h3>Submited Games</h3>
+              <div className="allThisUserGames">
+                {thisUser.games.map((userGame) => {
+                  return (
+                    <div key={userGame._id} className="eachSubmitedGame">
+                      <Link to={`/playing/${userGame._id}`}>
+                        <img
+                          src={userGame.imageUrl}
+                          alt="game-img"
+                          className="submitedGamePic"
+                        />
+                      </Link>
+                      <p>{userGame.title}</p>
 
-   <img src={thisUser.imageUrl} alt="profile img" id="userPic"
-   />   
-  </div>
-  <div className="userInfoDiv">
-   <h2>{thisUser.name}</h2>
-   <h2>bio: {thisUser.bio}</h2>
-   <h4>cohort: {thisUser.cohort}</h4>
-  <a href={thisUser.linkedin} target="_blank" rel="noreferrer">Linkedin profile</a>
-  <a href={thisUser.github} target="_blank" rel="noreferrer">Github profile</a>
-   <h4>campus: {thisUser.campus}</h4>
-</div>
-</div>
-<div className="thisUserGames">
-<h3>Submited Games</h3>
-  {thisUser.games.map((userGame)=>{
-    return(
-      <div key={userGame._id} className="eachSubmitedGame">
-      <Link to={`/playing/${userGame._id}`}><p>{userGame.title}</p>
-        <img src={userGame.imageUrl} alt="game-img" className="submitedGamePic" /></Link>
-      
-      {(user && user._id === userId) && 
-      <Link to={`/edit-game/${userGame._id}`}><button>Edit</button></Link>}
-      </div>
-    )
-  })}
-</div>
-<div className="likedGamesDiv">
-<h3>Liked Games</h3>
-{thisUser.likedGames.map((likedGame)=>{
-    return(
-      <div key={likedGame._id} className="eachLikedGame" >
-        <Link to={`/playing/${likedGame._id}`}><img src={likedGame.imageUrl} alt="game-img" className="likedGamePic" /></Link>
-      </div>
-    )
-  })}
-
-
-
-</div>
-
-   </>
-
-
-
-
-
-
-    }
-    </div>)
+                      <div className="thisUserGameCat">
+                        {userGame.category.map((cat) => (
+                          <p key={cat}>{cat}</p>
+                        ))}
+                      </div>
+                      {user && user._id === userId && (
+                        <Link to={`/edit-game/${userGame._id}`}>
+                          <button>Edit</button>
+                        </Link>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+          <div className="likedGamesDiv">
+            <h4>The ones you like</h4>
+            <div className="allLikedGames">
+              {thisUser.likedGames.map((likedGame) => {
+                return (
+                  <div key={likedGame._id} className="eachLikedGame">
+                    <Link
+                      to={`/playing/${likedGame._id}`}
+                      className="eachLikedGameLink"
+                    >
+                      <img
+                        src={likedGame.imageUrl}
+                        alt="game-img"
+                        className="likedGamePic"
+                      />
+                      <p>{likedGame.title}</p>
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
 }
 
-export default ProfilePage
+export default ProfilePage;

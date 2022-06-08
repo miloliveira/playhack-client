@@ -9,6 +9,7 @@
 
 .gameDetailsDiv {
   margin-top: 40px;
+  margin-bottom: 70px;
   width: 960px;
   display: flex;
   flex-direction: column;
@@ -48,32 +49,113 @@
 
 .gameDescriptionP {
   margin-top: 0;
+  font-size: 14px;
 }
 
 /* GAME BUTTONS */
 .gameButtons {
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-
-.fullScreenBtn{
-    height: 30px;
-    border: 2px solid #2f063d;
-    background-color: #2f063d;
-    border-radius: 15px;
-    padding: 2px 15px;
-    
-    
+.fullScreenBtn {
+  height: 30px;
+  border: 2px solid #2f063d;
+  background-color: #2f063d;
+  border-radius: 15px;
+  padding: 2px 15px;
 }
 
-.fullScreenBtn a{
-    text-decoration: none;
-    color: white;
+.fullScreenBtn a {
+  text-decoration: none;
+  color: white;
 }
 
-.gameComments{
-    width: 600px;
+/* COMMENTS */
+
+.gameComments {
+  width: 600px;
+}
+
+/* VIEW COMMENTS */
+.viewCommentsDiv {
+  width: 600px;
+}
+
+.noCommentsP {
+  text-align: center;
+}
+
+.eachComment {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 600px;
+  margin-bottom: 10px;
+}
+
+.userCommentInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.commentInfo {
+  margin: 0;
+  height: auto;
+  width: 600px;
+}
+
+.commentCreatorLink {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  font-size: 15px;
+}
+
+.commentCreatorLink img {
+  width: 20px;
+  height: 20px;
+  border-radius: 15px;
+  margin-right: 5px;
+}
+
+.commentContentDiv p {
+  margin: 0;
+  height: auto;
+  padding-left: 25px;
+  width: 570px;
+  font-size: 14px;
+}
+
+.deleteCommentBtn {
+  border: 0;
+}
+
+.deleteCommentBtn img {
+  width: 15px;
+  height: 15px;
+}
+
+/* CREATE COMMENTS */
+
+.createCommentDiv {
+  margin-top: 20px;
+  width: 600px;
+}
+
+.createCommentForm {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.createCommentForm textarea {
+  width: 590px;
+  margin-bottom: 10px;
 }

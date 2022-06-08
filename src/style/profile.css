@@ -1,82 +1,167 @@
-.profileBody{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.profileBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.userDiv{
-    display: flex;
-    flex-direction: row;
-    border: 2px solid black;
-    width: 70vw;
-    margin: 20px;
+.profileUpperDiv {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  width: 960px;
+  justify-content: space-evenly;
 }
 
-.userPicDiv{
-    width: 40vw;
-    height: 40vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* USER INFO*/
 
-}
-.userInfoDiv{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 40vh ;
-}
-#userPic{
-    max-width: 30vw;
-    max-height: 30vh;
-}
-.userInfoDiv h4, h2{
-    margin: 0;
-
+.userDiv {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 50px;
+  width: 320px;
+  min-height: 500px;
 }
 
-.thisUserGames{
-    display: flex;
-    flex-direction: row;
-    border: 2px solid black;
-    width: 70vw;
-    height: 40vh;
-    overflow-x: scroll;
-    white-space: nowrap;
-    margin: 20px;
+.userPicDiv {
+  width: 320px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#userProfilePic {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  object-position: 20% 10%;
+  border-radius: 100px;
+}
+.userInfoDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 250;
+  width: 235px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.userInfoDiv h4,
+.userInfoDiv p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: left;
 }
 
-.eachSubmitedGame{
-    display: flex;
-    flex-direction: column;
-    width: 20vw;
-    height: 20vh;
-    margin: 20px;
-}
-.submitedGamePic{
-    max-width: 20vw;
-    max-height: 20vh;
-}
-.likedGamesDiv{
-    display: flex;
-    flex-direction: row;
-    border: 2px solid black;
-    width: 70vw;
-    height: 40vh;
-    overflow-x: scroll;
-    white-space: nowrap;
-    margin: 20px;
-    align-items: center;
-}
-.eachLikedGame{
-    width: 20vw;
-    height: 20vh;
-    
+.userBioP {
+  font-size: 14px;
 }
 
-.likedGamePic{
-    max-width: 20vw;
-    max-height: 20vh;
-    margin: 20px;
+.userAccountsLinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 235px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* USER GAMES*/
+
+.thisUserGames {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 50px;
+  width: 500px;
+  max-height: 500px;
+  overflow-x: scroll;
+  white-space: nowrap;
+  align-items: center;
+}
+
+.allSubmitedGmes {
+  display: flex;
+  flex-direction: row;
+}
+
+.eachSubmitedGame {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  height: 270px;
+  margin-bottom: 20px;
+}
+
+.thisUserGameCat {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 400px;
+}
+
+.thisUserGameCat p {
+  margin-right: 20px;
+  border: 2px solid #2f063d;
+  background-color: #2f063d;
+  border-radius: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  color: white;
+  font-size: small;
+  text-align: center;
+}
+
+.submitedGamePic {
+  max-width: 20vw;
+  max-height: 20vh;
+}
+
+/* LIKED GAMES*/
+
+.likedGamesDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid black;
+  border-radius: 50px;
+  width: 880px;
+  height: 250px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.allLikedGames {
+  display: flex;
+  flex-direction: row;
+
+  width: 880px;
+  height: 200px;
+  overflow-x: scroll;
+  white-space: nowrap;
+  margin: 0;
+  align-items: center;
+}
+
+.eachLikedGame {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eachLikedGameLink {
+  text-decoration: none;
+  font-size: 14px;
+  text-align: center;
+}
+
+.likedGamePic {
+  min-width: 50px;
+  max-height: 50px;
 }

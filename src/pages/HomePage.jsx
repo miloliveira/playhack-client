@@ -39,37 +39,62 @@ function HomePage() {
 
 <div className="bgVideo">
 <h1>A gaming hub from ironhackers to ironhackers</h1>
+<div className="homeCard"></div>
 </div>
 
+<div className="mostHeader">
       <h3>Most Played Games</h3>
+      </div>
+
 <div className="mostPlayedGames">
       {mostPlayed &&
         mostPlayed.map((game) => {
           return (
-            <div key={game._id}>
-              <Link to={`/playing/${game._id}`}>
-                <img src={game.imageUrl} alt="game thumbnail" />
-                <h2>{game.title}</h2>
-              </Link>
-            </div>
+            <div key={game._id} className="eachGame">
+            <Link to={`/playing/${game._id}`} className="eachGameLink">
+            <div className="eachGameThumbnailDiv">
+              <img src={game.imageUrl} alt="game thumbnail" id="eachGameThumbnail"  />
+              </div>
+              <h4>{game.title}</h4>
+            </Link>
+            <Link to={`/profile/${game.user._id}`} className="gameUserInfoLink">
+            
+            <img src={game.user.imageUrl} alt="user profile pic" id="GameUserProfilePic" />
+              <p>{game.user.name}</p>
+              
+            </Link>
+          </div>
           );
         })}
 </div>
 
+<div className="mostHeader">
       <h3>Most Liked Games</h3>
+      </div>
 <div className="mostLikedGames">
       {mostLiked &&
         mostLiked.map((game) => {
           return (
-            <div key={game._id}>
-              <Link to={`/playing/${game._id}`}>
-                <img src={game.imageUrl} alt="game thumbnail" />
-                <h2>{game.title}</h2>
-              </Link>
-            </div>
+            <div key={game._id} className="eachGame">
+            <Link to={`/playing/${game._id}`} className="eachGameLink">
+            <div className="eachGameThumbnailDiv">
+              <img src={game.imageUrl} alt="game thumbnail" id="eachGameThumbnail"  />
+              </div>
+              <h4>{game.title}</h4>
+            </Link>
+            <Link to={`/profile/${game.user._id}`} className="gameUserInfoLink">
+            
+            <img src={game.user.imageUrl} alt="user profile pic" id="GameUserProfilePic" />
+              <p>{game.user.name}</p>
+              
+            </Link>
+          </div>
           );
         })}
         </div>
+
+
+
     </div>
   );
 }

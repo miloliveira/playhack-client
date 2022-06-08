@@ -10,6 +10,7 @@ import "../src/style/editGame.css"
 import "../src/style/submitGame.css"
 import "../src/style/gameDetails.css"
 import "../src/style/homepage.css"
+import "../src/style/navbar.css"
 import "./iframe.css"
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";

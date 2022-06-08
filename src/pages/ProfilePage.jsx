@@ -39,7 +39,8 @@ const{userId}= useParams()
    <h2>{thisUser.name}</h2>
    <h2>bio: {thisUser.bio}</h2>
    <h4>cohort: {thisUser.cohort}</h4>
-   <h4>cohort type:{thisUser.cohortType}</h4>
+  <a href={thisUser.linkedin} target="_blank" rel="noreferrer">Linkedin profile</a>
+  <a href={thisUser.github} target="_blank" rel="noreferrer">Github profile</a>
    <h4>campus: {thisUser.campus}</h4>
 </div>
 </div>

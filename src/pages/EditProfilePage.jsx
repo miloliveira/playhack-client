@@ -12,7 +12,8 @@ function EditProfilePage() {
   const [bio, setBio] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [cohort, setCohort] = useState("");
-  const [cohortType, setCohortType] = useState("");
+  const [linkedin, setLinkedin] = useState("");
+  const [github, setGithub] = useState("");
   const [campus, setCampus] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [isUploading, setIsUploading] = useState(false);
@@ -31,10 +32,10 @@ function EditProfilePage() {
       console.log(response.data);
       setName(response.data.name);
       setEmail(response.data.email);
-
       setBio(response.data.bio);
       setCohort(response.data.cohort);
-      setCohortType(response.data.cohortType);
+      setLinkedin(response.data.linkedin);
+      setGithub(response.data.github);
       setCampus(response.data.campus);
     } catch (error) {
       console.log(error);
@@ -71,8 +72,12 @@ function EditProfilePage() {
     setCohort(e.target.value);
   };
 
-  const handleCohortType = (e) => {
-    setCohortType(e.target.value);
+  const handleLinkedin = (e) => {
+    setLinkedin(e.target.value);
+  };
+
+  const handleGithub = (e) => {
+    setGithub(e.target.value);
   };
 
   const handleCampus = (e) => {
@@ -109,7 +114,8 @@ function EditProfilePage() {
         bio,
         cohort,
         imageUrl,
-        cohortType,
+        linkedin,
+        github,
         campus,
       };
     }else{
@@ -119,7 +125,8 @@ function EditProfilePage() {
         password,
         bio,
         cohort,
-        cohortType,
+        linkedin,
+        github,
         campus,
       };
     }
@@ -134,9 +141,9 @@ function EditProfilePage() {
         setEmail("");
         setPassword("");
         setBio("");
-
         setCohort("");
-        setCohortType("");
+        setLinkedin("")
+        setGithub("")
         setCampus("");
         navigate(`/profile/${userId}`);
       })
@@ -171,22 +178,25 @@ function EditProfilePage() {
         <input
           type="text"
           name="cohort"
+          placeholder="ex:April2022"
           value={cohort}
           onChange={handleCohort}
         />
 
-        <label htmlFor="cohortType">Type of cohort:</label>
-
-        <select
-          id="cohortType"
-          name="cohortType"
-          /* value={cohortType} */
-          onClick={handleCohortType}
-        >
-          <option value="" selected={cohortType===""}></option>
-          <option value="In person" selected={cohortType==="In person"} >In person</option>
-          <option value="Remote" selected={cohortType==="Remote"} >Remote</option>
-        </select>
+<label htmlFor="linkedin">Linkedin:</label>
+        <input
+          type="text"
+          name="linkedin"
+          value={linkedin}
+          onChange={handleLinkedin}
+        />
+        <label htmlFor="github">Github:</label>
+        <input
+          type="text"
+          name="github"
+          value={github}
+          onChange={handleGithub}
+        />
 
         <label htmlFor="campus">Campus:</label>
         <select

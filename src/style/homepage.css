@@ -19,10 +19,13 @@
   background-size: cover;
 }
 
+
+
 .bheader {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 50px;
 }
 
 .bheader h1 {
@@ -34,7 +37,7 @@
 .homeCard {
   width: 350px;
   height: 500px;
-  background-color: #363636;
+  background-color: rgba(54, 54, 54, 0.8);
   border-radius: 20px;
 }
 

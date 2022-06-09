@@ -41,10 +41,12 @@ function ProfilePage() {
               </div>
               <div className="userInfoDiv">
                 <h4>{thisUser.name}</h4>
+                <br />
                 <p>{thisUser.cohort}</p>
                 <p>{thisUser.campus}</p>
+                <br />
                 <p className="userBioP">{thisUser.bio}</p>
-
+<br />
                 <div className="userAccountsLinks">
                   <a href={thisUser.linkedin} target="_blank" rel="noreferrer">
                     <img

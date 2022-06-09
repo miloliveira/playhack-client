@@ -6,8 +6,19 @@ nav{
     align-items: center;
     justify-content: space-between;
     position:fixed;
+    z-index: 1000;
 }
 
+.logoImg{
+  background-image: url('../logo.png');
+  background-repeat: no-repeat;
+  background-size: 80%;
+  width: 80px;
+  height: 45px;
+  margin-left: 60px;
+  margin-top:8px;
+
+}
 
 nav button{
     text-decoration: none;

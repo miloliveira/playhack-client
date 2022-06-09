@@ -1,38 +1,59 @@
-.loginForm{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-}
-.loginBody{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+.loginBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
-.loginPageB{
-    border-radius: 50px;
-    width: 500px;
-    background-color: grey;
-    height:400px;
-    margin-top: 50px;
+.loginPageB {
+  border-radius: 50px;
+  width: 450px;
+  background-color: grey;
+  height: 400px;
+  margin-top: 50px;
+  text-align: center;
 }
 
-.css-input {
-    padding: 5px;
-    font-size: 16px;
-    border-width: 1px;
-    border-color: #CCCCCC;
-    background-color: #FFFFFF;
-    color: #000000;
-    border-style: solid;
-    border-radius: 50px;
-    box-shadow: 0px 0px 5px rgba(66,66,66,.75);
-    text-shadow: 0px 0px 5px rgba(66,66,66,.75);
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-.css-input:focus {
-    outline:none;
+
+.css-authinput {
+  padding: 5px;
+  font-size: 16px;
+  border-width: 1px;
+  border-color: #cccccc;
+  background-color: #ffffff;
+  color: #000000;
+  border-style: solid;
+  border-radius: 50px;
+  box-shadow: 0px 0px 5px rgba(66, 66, 66, 0.75);
+  text-shadow: 0px 0px 5px rgba(66, 66, 66, 0.75);
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.css-authinput:focus {
+  outline: none;
+}
+
+.loginLinkBtn{
+    text-decoration: none;
+    color: white;
+    margin: 0;
+}
+
+.loginBtnSubmit{
+    width: 110px;
+  margin: 10pxx;
+  height: 30px;
+  border-radius: 15px ;
+  background-color: white;
+  color: #363636;
+border: 0;}
+.loginBtnSubmit:hover{
+    font-weight: bold;
 }

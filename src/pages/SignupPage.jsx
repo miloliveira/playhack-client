@@ -40,12 +40,14 @@ function SignupPage() {
 
   return (
     <div className="signupBody">
+    <div className="signupPageB">
       <h1>Signup</h1>
       <form onSubmit={handleSubmit} className="signupForm">
         <label htmlFor="username">Name*</label>
         <input
           type="text"
           placeholder="John Doe"
+          className="css-authinput" 
           value={name}
           name="username"
           onChange={handleName}
@@ -55,6 +57,7 @@ function SignupPage() {
         <input
           type="email"
           placeholder="example@email.com"
+          className="css-authinput" 
           value={email}
           name="email"
           onChange={handleEmail}
@@ -63,19 +66,20 @@ function SignupPage() {
         <label htmlFor="password">Password*</label>
         <input
           type="password"
+          className="css-authinput" 
           value={password}
           name="password"
           onChange={handlePassword}
         />
 
-        <button type="submit">Sign Up</button>
+        <button className="signupBtnSubmit" type="submit">Sign Up</button>
 
-        <p>Already have an account?</p>
-        <Link to="/login">Log in here</Link>
+        <p className="loginFormPhraseP">Already have an account?</p>
+        <Link to="/login" className="loginLinkBtn">Log in here</Link>
       </form>
       {errorMessage && <p >{errorMessage}</p>}
 
-    
+      </div>
     </div>
   );
 }

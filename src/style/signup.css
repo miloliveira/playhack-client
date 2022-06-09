@@ -1,15 +1,48 @@
+.signupBody{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.signupPageB {
+    border-radius: 50px;
+    width: 450px;
+    background-color: grey;
+    height: 450px;
+    margin-top: 50px;
+    text-align: center;
+  }
+
 .signupForm{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 2px solid black;
-    border-radius: 15px;
-    width: 40vw;
 }
-.signupBody{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+
+
+.loginFormPhraseP{
+    margin-bottom:5px ;
+    margin-top: 40px;
+}
+
+.signupLinkBtn{
+    text-decoration: none;
+    color: white;
+    margin: 0;
+}
+
+
+.signupBtnSubmit{
+    width: 110px;
+  margin: 10pxx;
+  height: 30px;
+  border-radius: 15px ;
+  background-color: white;
+  color: #363636;
+border: 0;}
+.signupBtnSubmit:hover{
+    font-weight: bold;
 }

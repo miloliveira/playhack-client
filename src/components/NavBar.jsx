@@ -8,7 +8,9 @@ function NavBar() {
   return (
     <nav>
     <div className="navLeft">
+    <Link to="/">
     <div className="logoImg"></div>
+    </Link>
       <Link to="/">
         <button>Home</button>
       </Link>

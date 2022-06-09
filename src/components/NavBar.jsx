@@ -12,10 +12,10 @@ function NavBar() {
     <div className="logoImg"></div>
     </Link>
       <Link to="/">
-        <button>Home</button>
+        <button className="navBut">Home</button>
       </Link>
       <Link to="/games">
-        <button>Games</button>
+        <button className="navBut">Games</button>
       </Link>
       </div>
 
@@ -27,8 +27,8 @@ function NavBar() {
             <button className="subGameBut">Submit a game</button>
           </Link>
       
-      <div class="dropdown">
-        <button class="dropbtn">
+      <div className="dropdown">
+        <button className="dropbtn">
           <img className="navUser" src="https://res.cloudinary.com/dzwl5teme/image/upload/v1654704454/playHack/profile_nav_icon1_v9zjfd.png" alt="user"/>
           <i className="fa fa-caret-down"></i>
         </button>
@@ -53,11 +53,8 @@ function NavBar() {
 
       {!isLoggedIn && (
         <>
-          <Link to="/signup">
-            <button>Signup</button>
-          </Link>
-          <Link to="/login">
-            <button>Login</button>
+          <Link to="/login" className="subGameBut">
+            <button className="subGameBut">Login/Signup</button>
           </Link>
         </>
       )}

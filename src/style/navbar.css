@@ -1,7 +1,8 @@
 nav{
     height: 50px;
     width: 100vw;
-    background-color: #363636;
+    background-color: rgba(54, 54, 54, 0.7);
+/*     background-color: #363636; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -15,7 +16,7 @@ nav{
   background-size: 80%;
   width: 80px;
   height: 45px;
-  margin-left: 60px;
+  margin-left: 70px;
   margin-top:8px;
 
 }
@@ -49,12 +50,31 @@ nav button{
   align-items: center;
 }
 
+.navBut{
+  font-weight: bolder;
+}
+.navBut:hover{
+  font-weight: bolder;
+  border-bottom: 4px solid white;
+  padding: 15px 5px 15px 5px;
+}
+
 .subGameBut{
   width: 110px;
   margin: 10pxx;
   height: 30px;
   border-radius: 15px ;
   background-color: white;
+  color: #363636;
+}
+
+.subGameBut:hover{
+  width: 110px;
+  margin: 10pxx;
+  height: 30px;
+  border-radius: 15px ;
+  padding: 1px;
+  background-color: rgb(209, 209, 209);
   color: #363636;
 }
 

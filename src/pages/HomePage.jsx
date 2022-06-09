@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../context/auth.context";
 import {
   Animator,
   ScrollContainer,
@@ -19,6 +21,7 @@ import {
 function HomePage() {
   const [mostPlayed, setMostPlayed] = useState([]);
   const [mostLiked, setMostLiked] = useState([]);
+  const { isLoggedIn, user, logoutUser } = useContext(AuthContext)
 
   const getAllGames = async () => {
     try {
@@ -52,6 +55,7 @@ function HomePage() {
 
   return (
     <>
+        <div className="mEscuro"></div>
         <div className="bgVideo"></div>
     <ScrollContainer>
 
@@ -59,8 +63,20 @@ function HomePage() {
         <ScrollPage page={0}>
           <Animator animation={batch(Fade(), Sticky(), MoveOut())}>
             <div className="bheader">
-              <h1>A gaming hub from ironhackers to ironhackers</h1>
-              <div className="homeCard"></div>
+              <h1>A gaming hub from ironhackers, to ironhackers</h1>
+              <div className="homeCard">
+              <img src="https://res.cloudinary.com/dzwl5teme/image/upload/v1654793120/playHack/ghjk_mo3dd9.png" alt="ironhack logo"/>
+              <br />
+              <p>Ironhack alumni?</p>
+              <p>Signup and submit your game from Web Dev's Bootcamp!</p>
+              <br />
+              {user ? <Link to={`/submit-game/${user._id}`}>
+            <button className="subGameBut">Submit a game</button>
+          </Link> : <Link to={`/login`}>
+            <button className="subGameBut">Submit a game</button>
+          </Link>}
+
+              </div>
             </div>
           </Animator>
         </ScrollPage>
@@ -69,7 +85,7 @@ function HomePage() {
         <Animator animation={FadeUp}>
           <div className="bMostPlayed">
             <div className="mostHeader">
-              <h3>Most Played Games</h3>
+              <h3>MOST PLAYED GAMES</h3>
             </div>
 
             <div className="mostPlayedGames">
@@ -113,7 +129,7 @@ function HomePage() {
         <Animator animation={FadeUp}>
           <div className="bMostLiked">
             <div className="mostHeader">
-              <h3>Most Liked Games</h3>
+              <h3>MOST LIKED GAMES</h3>
             </div>
             <div className="mostLikedGames">
               {mostLiked &&

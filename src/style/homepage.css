@@ -1,66 +1,55 @@
-.homePageBody {
+/* .homePageBody {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+  flex-wrap: wrap;
+} */
 
 .bgVideo {
-  background-image: url('../hbggif.gif');
+  background-image: url("../hbggif.gif");
   background-repeat: no-repeat;
-  position: fixed; 
-	right: 0; 
-	bottom: 0;
-	min-width: 100%; 
-	min-height: 100%;
-	width: auto; 
-	height: auto; 
-	z-index: -1000;
-	background-size: cover; 
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1000;
+  background-size: cover;
 }
 
-.logoImg{
-  background-image: url('../logo.png');
-  background-repeat: no-repeat;
-  background-size: 80%;
-  width: 80px;
-  height: 45px;
-  margin-left: 60px;
-  margin-top:8px;
-
-}
-
-.bheader{
+.bheader {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 150px 0px 500px 0px;
 }
 
-.bheader h1{
+.bheader h1 {
   color: white;
   width: 500px;
   font-size: 40px;
 }
 
-.bMostPlayed {
-  margin: 100px 0px 500px 0px;
-}
-
-.bMostLiked {
-  margin: 100px 0px 200px 0px;
-}
-
-.mostHeader{
-  width: 1150px;
-  text-align: start;
-  color: white;
-}
-
-.homeCard{
+.homeCard {
   width: 350px;
   height: 500px;
   background-color: #363636;
   border-radius: 20px;
+}
+
+.bMostPlayed, .bMostLiked {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mostHeader {
+  width: 1050px;
+  text-align: start;
+  color: white;
+  margin-left: 20px;
 }
 
 .mostPlayedGames,
@@ -68,6 +57,4 @@
   display: flex;
   flex-direction: row;
   width: 1200px;
-  flex-wrap: wrap;
-
 }

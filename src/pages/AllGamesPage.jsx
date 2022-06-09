@@ -36,7 +36,9 @@ function AllGamesPage() {
   }, []);
 
   return (
-    <div className="allGamesBody"><div className="searchComponent">
+    
+    <div className="allGamesBody">
+    <div className="searchComponent">
       <Search gameSearch={gameSearch} />
       </div>
       <div className="allGamesList">      {games && searchGames.map((game) => {

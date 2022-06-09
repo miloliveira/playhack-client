@@ -77,7 +77,10 @@
   object-fit: cover;
   object-position: 50% 50%;
 }
-
+.gameTitleH5{ 
+word-wrap: break-word;
+  white-space: pre-wrap;
+}
 /* SEARCH BAR */
 
 .searchComponent {

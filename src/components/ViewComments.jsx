@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 function ViewComments(props) {
   const { gameId, isUpdated, setIsUpdated } = props;
-  const { isLoggedIn, user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [commentList, setCommentList] = useState([]);
   const getToken = localStorage.getItem("authToken");
 
@@ -32,7 +32,7 @@ function ViewComments(props) {
 
   useEffect(() => {
     getComments();
-  }, [isUpdated]);
+  }, [isUpdated, gameId]);
   console.log(commentList);
   return (
     <div className="viewCommentsDiv">

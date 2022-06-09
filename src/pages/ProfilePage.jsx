@@ -47,12 +47,18 @@ function ProfilePage() {
 
                 <div className="userAccountsLinks">
                   <a href={thisUser.linkedin} target="_blank" rel="noreferrer">
-                    <img src="https://res.cloudinary.com/dzwl5teme/image/upload/v1654766013/playHack/linkedin_eifgp8.png" alt="linkedin icon " 
+                    <img
+                      src="https://res.cloudinary.com/dzwl5teme/image/upload/v1654766013/playHack/linkedin_eifgp8.png"
+                      alt="linkedin icon "
                       className="accountIcon"
                     />
                   </a>
                   <a href={thisUser.github} target="_blank" rel="noreferrer">
-                  <img src="https://res.cloudinary.com/dzwl5teme/image/upload/v1654766013/playHack/github_qjmmxj.png" alt="github icon " className="accountIcon" />
+                    <img
+                      src="https://res.cloudinary.com/dzwl5teme/image/upload/v1654766013/playHack/github_qjmmxj.png"
+                      alt="github icon "
+                      className="accountIcon"
+                    />
                   </a>
                 </div>
               </div>
@@ -74,15 +80,17 @@ function ProfilePage() {
                             />
                           </Link>
                           <div className="submitedGameInfoDiv">
-                            <div className="submitedGameInfoInnerDiv">
-                              <p>{userGame.title}</p>
-
-                              {user && user._id === userId && (
-                                <Link to={`/edit-game/${userGame._id}`}>
-                                  <button>Edit</button>
-                                </Link>
-                              )}
+                            {user && user._id === userId && (
+                              <div className="editGameBtnDiv">
+                              <Link to={`/edit-game/${userGame._id}`} className="editGameBtnLink"  >
+                                <img src="https://res.cloudinary.com/dzwl5teme/image/upload/v1654783345/playHack/edit_jotcsw.png" alt="edit icon" id="editGameIcon"/>
+                              </Link>
+                              </div>
+                            )}
+                            <div className="submitedGameTitleP">
+                              <p className="titleP">{userGame.title}</p>
                             </div>
+
                             <div className="thisUserGameCat">
                               {userGame.category.map((cat) => (
                                 <p key={cat}>{cat}</p>
@@ -114,7 +122,7 @@ function ProfilePage() {
                           className="likedGamePic"
                         />
                         <div className="eachLikedGamePDiv">
-                          <p>{likedGame.title}</p>
+                          <p className="titleP">{likedGame.title}</p>
                         </div>
                       </Link>
                     </div>

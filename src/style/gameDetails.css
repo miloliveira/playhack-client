@@ -75,6 +75,7 @@
 
 
 .lowerDivGameDetails{
+  margin-top: 40px;
   width: 960px;
   display: flex;
   flex-direction: row;
@@ -151,6 +152,18 @@
   height: 15px;
 }
 
+.likeBtn{
+  border: 0;
+}
+
+.likeBtnImg{
+  width: 30px;
+  height: 30px;
+}
+
+
+
+
 /* CREATE COMMENTS */
 
 .createCommentDiv {
@@ -173,6 +186,10 @@
 .recomendationGames{
   width: 360px;
   height: 400px;
+}
+
+.recomendationGames h3{
+  margin-left: 35px;
 }
 .allRelatedGames{
   width: 360px;

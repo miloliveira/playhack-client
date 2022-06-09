@@ -106,39 +106,54 @@
 }
 
 .submitedGameInfoDiv {
-  max-width: 450px;
+  max-width: 300px;
   min-height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-}
-
-.submitedGameInfoInnerDiv {
- /*  display: flex;
-  flex-direction: row;
-
-  justify-content:space-around;
-  height: auto;
-  word-wrap: break-word; */
-  width: 240px;
+ padding:10px;
 }
 
 
-/* .submitedGameInfoInnerDiv p{
-  max-width: 200px;
-  height:auto;
-  font-size: 14px;
+.submitedGameTitleP {
+  max-width: 280px;
   display: flex;
-flex-wrap: wrap;
-} */
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: white;
+}
 
+.titleP {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  max-width: 100% ;
+}
+
+.editGameBtnDiv{
+  max-width: 280px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.editGameBtnLink{
+  
+  width: 20px;
+  height: 20px;
+}
 
 .thisUserGameCat {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  max-width: 400px;
+  max-width: 280px;
+  height: auto;
 }
+
+#editGameIcon{
+  width: 20px;
+  height: 20px;
+}
+
 
 .thisUserGameCat p {
   margin-right: 15px;
@@ -218,7 +233,7 @@ flex-wrap: wrap;
 
 .eachLikedGamePDiv p {
   width: 140px;
-
+font-size: 12px;
   text-align: center;
 }
 

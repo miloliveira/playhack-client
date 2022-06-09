@@ -71,8 +71,8 @@ function GameDetailsPage() {
   };
 
   useEffect(() => {
-    getGame();
     getAllGames();
+    getGame();
   }, [gameId]);
 
   function disable() {
@@ -125,7 +125,7 @@ function GameDetailsPage() {
             </button>
             {user && (
               <button onClick={() => likeGame(game._id)} className="likeBtn">
-                {isLiked ? "dislike" : "like"}
+                {isLiked ? <img src="https://res.cloudinary.com/dzwl5teme/image/upload/v1654781913/playHack/dislike_r9hsmz.png" alt="dislike btn" className="likeBtnImg" /> : <img src="https://res.cloudinary.com/dzwl5teme/image/upload/v1654781907/playHack/like_ib82o8.png" alt="like btn" className="likeBtnImg"/>}
               </button>
             )}
           </div>
@@ -154,9 +154,11 @@ function GameDetailsPage() {
             {allGames.map((eachGame) => {
 
               if(eachGame.category.includes(game.category[0])){
-
+                console.log(eachGame._id)
         return (
-          <div key={eachGame._id} className="eachRelatedGame">
+          <div key={eachGame._id} 
+          
+          className="eachRelatedGame">
             <Link to={`/playing/${eachGame._id}`} className="eachRelatedGameLink">
             
               <img src={eachGame.imageUrl} alt="game thumbnail" className="eachRelatedGameThumbnail" />

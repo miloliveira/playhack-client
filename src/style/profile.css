@@ -3,6 +3,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  background-color: #232323;
 }
 
 .profileUpperDiv {
@@ -18,9 +20,10 @@
 .userDiv {
   display: flex;
   flex-direction: column;
-
   width: 320px;
   min-height: 500px;
+  background-color: #363636;
+  border-radius: 50px 50px 50px 50px;
 }
 
 .userPicDiv {
@@ -48,9 +51,9 @@
 }
 .userInfoDiv h4,
 .userInfoDiv p {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 0;
   text-align: left;
+  color: white;
 }
 
 .userBioP {
@@ -69,6 +72,8 @@
 .accountIcon{
   width: 30px;
   height: 30px;
+  -webkit-filter: invert(1);
+  filter: invert(1);
 }
 
 /* USER GAMES*/
@@ -81,6 +86,9 @@
   overflow-y: scroll;
   white-space: nowrap;
   align-items: center;
+  background-color: #363636;
+  border-radius: 50px 50px 50px 50px;
+  color: white;
 }
 
 .allSubmitedGmes {
@@ -101,7 +109,7 @@
   flex-direction: row;
   max-width: 450px;
   height: 150px;
-  background-color: #363636;
+  background-color: #232323;
   border-radius: 10px;
 }
 
@@ -157,14 +165,14 @@
 
 .thisUserGameCat p {
   margin-right: 15px;
-  border: 2px solid #2f063d;
-  background-color: #2f063d;
+
+  background-color: white;
   border-radius: 15px;
   padding-left: 10px;
   padding-right: 10px;
   margin-top: 2px;
   margin-bottom: 2px;
-  color: white;
+  color: black  ;
   font-size: small;
   text-align: center;
 }
@@ -183,12 +191,14 @@
 .likedGamesDiv {
   display: flex;
   flex-direction: column;
-
+color: white;
   border-radius: 50px;
   width: 880px;
   height: 250px;
   margin-top: 40px;
   margin-bottom: 40px;
+  background-color: #363636;
+  border-radius: 50px 50px 50px 50px;
 }
 
 .likedGamesDiv h4 {
@@ -222,7 +232,7 @@
   text-decoration: none;
   font-size: 14px;
   text-align: center;
-  background-color: #363636;
+  background-color: #232323;
   border-radius: 10px;
   color: white;
   text-align: left;
@@ -252,7 +262,7 @@ font-size: 12px;
 }
 
 .allLikedGames::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
   border-radius: 10px;
 }
 
@@ -262,7 +272,7 @@ font-size: 12px;
   border: 1px solid #363636;
 }
 .allLikedGames::-webkit-scrollbar-track-piece {
-  background-color: rgba(0, 0, 0, 0.353);
+  background-color: rgba(0, 0, 0, 0);
   border-radius: 10px;
 }
 
@@ -273,16 +283,15 @@ font-size: 12px;
 }
 
 .thisUserGames::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
   border-radius: 10px;
 }
 
 .thisUserGames::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: white;
-  border: 1px solid #363636;
 }
 .thisUserGames::-webkit-scrollbar-track-piece {
-  background-color: rgba(0, 0, 0, 0.353);
+  background-color: rgba(0, 0, 0, 0);
   border-radius: 10px;
 }

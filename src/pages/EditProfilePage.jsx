@@ -8,7 +8,6 @@ function EditProfilePage() {
   const { userId } = useParams();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [bio, setBio] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [cohort, setCohort] = useState("");
@@ -110,7 +109,6 @@ function EditProfilePage() {
       body = {
         name,
         email,
-        password,
         bio,
         cohort,
         imageUrl,
@@ -122,7 +120,6 @@ function EditProfilePage() {
       body = {
         name,
         email,
-        password,
         bio,
         cohort,
         linkedin,
@@ -139,7 +136,6 @@ function EditProfilePage() {
       .then(() => {
         setName("");
         setEmail("");
-        setPassword("");
         setBio("");
         setCohort("");
         setLinkedin("");
@@ -153,28 +149,32 @@ function EditProfilePage() {
   return (
     <div className="editProfileBody">
       <form onSubmit={handleSubmit} className="editProfileForm">
-        <label htmlFor="name">Name:</label>
+<h4>Edit your profile</h4>
+<div className="deleteProfileBtnDiv">
+      <button onClick={() => deleteUser(userId)} className="deleteProfileBtn">
+          Delete profile
+        </button>
+        </div>
+      <div className="editProfileFormInnerDiv">
+      <div className="editProfileFormInfoDiv1">
+        <label htmlFor="name">Nam*:</label>
         <input type="text" name="name" value={name} onChange={handleName} />
 
-        <label htmlFor="email">Email address:</label>
+        <label htmlFor="email">Email address*</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
 
-        <label htmlFor="bio">Bio:</label>
+        <label htmlFor="bio">Bio*</label>
         <textarea
           name="bio"
           cols="30"
-          rows="10"
+          rows="7"
           value={bio}
           onChange={handleBio}
         ></textarea>
 
-        <input
-          type="file"
-          name="imageUrl"
-          onChange={(e) => handleFileUpload(e)}
-        />
 
-        <label htmlFor="cohort">Cohort:</label>
+
+<label htmlFor="cohort">Cohort*</label>
         <input
           type="text"
           name="cohort"
@@ -183,22 +183,7 @@ function EditProfilePage() {
           onChange={handleCohort}
         />
 
-        <label htmlFor="linkedin">Linkedin:</label>
-        <input
-          type="text"
-          name="linkedin"
-          value={linkedin}
-          onChange={handleLinkedin}
-        />
-        <label htmlFor="github">Github:</label>
-        <input
-          type="text"
-          name="github"
-          value={github}
-          onChange={handleGithub}
-        />
-
-        <label htmlFor="campus">Campus:</label>
+<label htmlFor="campus">Campus*</label>
         <select
           id="campus"
           name="campus"
@@ -241,10 +226,45 @@ function EditProfilePage() {
           </option>
         </select>
 
-        <button type="submit">Edit profile</button>
-        <button onClick={() => deleteUser(userId)} className="deleteProfileBtn">
-          Delete profile
-        </button>
+</div>
+
+<div className="editProfileFormInfoDiv2">
+        <label htmlFor="linkedin">Linkedin profile link*</label>
+        <input
+          type="text"
+          name="linkedin"
+          value={linkedin}
+          onChange={handleLinkedin}
+        />
+        <label htmlFor="github">Github profile link*</label>
+        <input
+          type="text"
+          name="github"
+          value={github}
+          onChange={handleGithub}
+        />
+
+<label htmlFor="imageUrl">Upload profile image:</label>
+{imageUrl && (
+              <div className="profilePicPreviewDiv" >
+                <img
+                  src={imageUrl}
+                  alt="profile pic preview"
+                  id="profilePicPreview"
+                />
+              </div>
+            )}
+        <input
+          type="file"
+          name="imageUrl"
+          onChange={(e) => handleFileUpload(e)}
+        />
+
+</div>
+        </div>
+
+        <button type="submit" className="editProfileSubmitBtn">Edit profile</button>
+        
       </form>
     </div>
   );

@@ -13,6 +13,18 @@ function GameDetailsPage() {
   const { gameId } = useParams();
   const [isLiked, setIsLiked] = useState(false);
   const getToken = localStorage.getItem("authToken");
+  const [allGames, setAllGames] = useState([]);
+
+
+  const getAllGames = async () => {
+    try {
+      let response = await axios.get(`${process.env.REACT_APP_API_URL}/games`);
+      setAllGames(response.data);
+      
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const getGame = async () => {
     try {
@@ -60,6 +72,7 @@ function GameDetailsPage() {
 
   useEffect(() => {
     getGame();
+    getAllGames();
   }, [gameId]);
 
   function disable() {
@@ -116,6 +129,7 @@ function GameDetailsPage() {
               </button>
             )}
           </div>
+          <div className="lowerDivGameDetails">
 <div className="gameComments">
           <ViewComments
             gameId={game._id}
@@ -131,6 +145,34 @@ function GameDetailsPage() {
           )}
           </div>
 
+
+
+
+          <div className="recomendationGames">
+            <h3>Related games:</h3>
+            <div className="allRelatedGames">
+            {allGames.map((eachGame) => {
+
+              if(eachGame.category.includes(game.category[0])){
+
+        return (
+          <div key={eachGame._id} className="eachRelatedGame">
+            <Link to={`/playing/${eachGame._id}`} className="eachRelatedGameLink">
+            
+              <img src={eachGame.imageUrl} alt="game thumbnail" className="eachRelatedGameThumbnail" />
+              <p>{eachGame.title}</p>
+            </Link>
+          </div>
+        );
+      }
+
+      }).splice(0, 6)}
+</div>
+          </div>
+
+
+
+</div>
         </div>
       )}
     </div>

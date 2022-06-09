@@ -47,10 +47,12 @@ function ProfilePage() {
 
                 <div className="userAccountsLinks">
                   <a href={thisUser.linkedin} target="_blank" rel="noreferrer">
-                    Linkedin
+                    <img src="https://res.cloudinary.com/dzwl5teme/image/upload/v1654766013/playHack/linkedin_eifgp8.png" alt="linkedin icon " 
+                      className="accountIcon"
+                    />
                   </a>
                   <a href={thisUser.github} target="_blank" rel="noreferrer">
-                    Github
+                  <img src="https://res.cloudinary.com/dzwl5teme/image/upload/v1654766013/playHack/github_qjmmxj.png" alt="github icon " className="accountIcon" />
                   </a>
                 </div>
               </div>

@@ -1,20 +1,86 @@
-.editGameForm{
+.editGameBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.editGameForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  border-radius: 15px;
+  width: 960px;
+  height: 500px;
+  margin-top: 100px;
+}
+
+.deleteProfileBtnDiv {
+  width: 960px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.deleteGameBtn {
+  background-color: red;
+  border-radius: 5px;
+  margin-right: 30px;
+}
+.editGameFormInnerDiv {
+  display: flex;
+  flex-direction: row;
+  width: 960px;
+  height: 370px;
+  justify-content: space-evenly;
+
+  
+}
+
+.editGameFormDiv1 {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  margin: 0;
+}
+
+.editGameFormDiv1 input {
+  margin-bottom: 20px;
+}
+
+.editGameFormDiv2 {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0;
+}
+
+.editGameFormDiv2 input {
+    margin-bottom: 20px;
+  }
+
+  .editGameCatDiv {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid black;
-    border-radius: 15px;
-    width: 60vw;
-   
-}
-.editGameBody{
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 600px;
+  }
+  .editGameCategories {
+    font-size: 14px;
+  }
+
+  .thumbnailPreviewDiv {
+    height: 200px;
+    width: 300px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-}
-.deleteGameBtn{
-background-color: red;
-border-radius: 5px;
-}
+    align-items: center;
+  }
+  
+  .thumbnailPreview {
+    object-fit: cover;
+    object-position: 50% 50%;
+    width: 300px;
+    height: 200px;
+  }
+  

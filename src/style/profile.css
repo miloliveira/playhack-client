@@ -6,7 +6,7 @@
 }
 
 .profileUpperDiv {
-  margin-top: 40px;
+  margin-top: 100px;
   display: flex;
   flex-direction: row;
   width: 960px;
@@ -66,12 +66,16 @@
   margin-bottom: 20px;
 }
 
+.accountIcon{
+  width: 30px;
+  height: 30px;
+}
+
 /* USER GAMES*/
 
 .thisUserGames {
   display: flex;
   flex-direction: column;
-
   width: 500px;
   max-height: 500px;
   overflow-y: scroll;
@@ -87,7 +91,7 @@
 .eachSubmitedGameDiv {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  max-width: 450px;
   height: 150px;
   margin-bottom: 20px;
 }
@@ -95,28 +99,39 @@
 .eachSubmitedGame {
   display: flex;
   flex-direction: row;
-  max-width: 400px;
+  max-width: 450px;
   height: 150px;
   background-color: #363636;
   border-radius: 10px;
 }
 
 .submitedGameInfoDiv {
-  width: 400px;
+  max-width: 450px;
   min-height: 100px;
-  margin-left: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
 
 .submitedGameInfoInnerDiv {
-  display: flex;
+ /*  display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 210px;
+
+  justify-content:space-around;
+  height: auto;
+  word-wrap: break-word; */
+  width: 240px;
 }
+
+
+/* .submitedGameInfoInnerDiv p{
+  max-width: 200px;
+  height:auto;
+  font-size: 14px;
+  display: flex;
+flex-wrap: wrap;
+} */
+
 
 .thisUserGameCat {
   display: flex;

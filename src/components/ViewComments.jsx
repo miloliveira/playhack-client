@@ -51,7 +51,7 @@ function ViewComments(props) {
                 </Link>
                 {user && user._id === comment.user._id && (
                   <button onClick={() => deleteComment(comment._id)} className="deleteCommentBtn" >
-                    <img src="https://cdn2.iconfinder.com/data/icons/cleaning-19/30/30x30-10-512.png" alt="trash bin" />
+                    <img src="https://res.cloudinary.com/dzwl5teme/image/upload/v1654766013/playHack/trashbin_w3dkwg.png" alt="trash bin" />
                   </button>
                 )}
               </div>

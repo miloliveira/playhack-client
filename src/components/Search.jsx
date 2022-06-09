@@ -16,7 +16,7 @@ gameSearch(e.target.value)
     <input type="text" value={search} onChange={handleSearch}
       placeholder="Search for Game or Alumni"
     />
-    <img src='' alt='search icon' />
+    <img src='https://res.cloudinary.com/dzwl5teme/image/upload/v1654766013/playHack/lupa_sapt5q.png' alt='search icon' id='searchBarIcon' />
     </div>
   )
 }

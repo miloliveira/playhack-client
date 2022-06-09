@@ -1,20 +1,84 @@
-.editProfileForm{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid black;
-    border-radius: 15px;
-    width: 50vw;
-   
+.editProfileBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-.editProfileBody{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.editProfileForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  border-radius: 15px;
+  width: 960px;
+  height: 500px;
+  margin-top: 100px;
 }
-.deleteProfileBtn{
-    background-color: red;
-    border-radius: 5px;
-    }
+
+.editProfileFormInnerDiv {
+  display: flex;
+  flex-direction: row;
+  width: 960px;
+  height: 370px;
+  justify-content: space-evenly;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.editProfileFormInfoDiv1 {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  height: 370px;
+}
+
+.editProfileFormInfoDiv2 {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  height: 370px;
+}
+
+.editProfileFormInfoDiv1 input {
+  margin-bottom: 15px;
+}
+
+.editProfileFormInfoDiv1 textarea {
+  margin-bottom: 15px;
+}
+
+.editProfileFormInfoDiv2 input {
+  margin-bottom: 15px;
+}
+
+.deleteProfileBtnDiv {
+  width: 960px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.deleteProfileBtn {
+  background-color: red;
+  border-radius: 5px;
+  margin-right: 30px;
+}
+
+.profilePicPreviewDiv {
+  height: 200px;
+  width: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#profilePicPreview {
+  object-fit: cover;
+  object-position: 50% 50%;
+  width: 300px;
+  height: 200px;
+}
+
+.editProfileSubmitBtn {
+  margin-top: 0;
+}

@@ -116,13 +116,95 @@ function EditGamePage() {
 
   return (
     <div className="editGameBody">
-      <h2>EditGamePage</h2>
 
       <form onSubmit={handleSubmit} className="editGameForm">
+      <h4>Edit your Game</h4>
+      <div className="deleteProfileBtnDiv">
+      <button onClick={() => deleteGame(gameId)} className="deleteGameBtn">
+          Delete Game
+        </button>
+      </div>
+      <div className="editGameFormInnerDiv">
+      <div className="editGameFormDiv1">
         <label htmlFor="title">Title*</label>
         <input type="text" value={title} name="title" onChange={handleTitle} />
+<div className="editGameCatDiv">
+        <label htmlFor="category">Category*</label>
+        <div className="editGameCategories">
+          <label htmlFor="Action">Action</label>
+          <input
+            type="checkbox"
+            value="Action"
+            checked={category.includes("Action")}
+            name="category"
+            onChange={handleCategory}
+          />
 
-        <label htmlFor="description">description:</label>
+          <label htmlFor="Arcade">Arcade</label>
+          <input
+            type="checkbox"
+            value="Arcade"
+            checked={category.includes("Arcade")}
+            name="category"
+            onChange={handleCategory}
+          />
+
+          <label htmlFor="Adventure">Adventure</label>
+          <input
+            type="checkbox"
+            value="Adventure"
+            checked={category.includes("Adventure")}
+            name="category"
+            onChange={handleCategory}
+          />
+
+          <label htmlFor="Racing">Racing</label>
+          <input
+            type="checkbox"
+            value="Racing"
+            checked={category.includes("Racing")}
+            name="category"
+            onChange={handleCategory}
+          />
+
+          <label htmlFor="Puzzle">Puzzle</label>
+          <input
+            type="checkbox"
+            value="Puzzle"
+            checked={category.includes("Puzzle")}
+            name="category"
+            onChange={handleCategory}
+          />
+
+          <label htmlFor="Shooting">Shooting</label>
+          <input
+            type="checkbox"
+            value="Shooting"
+            checked={category.includes("Shooting")}
+            name="category"
+            onChange={handleCategory}
+          />
+
+          <label htmlFor="Sports">Sports</label>
+          <input
+            type="checkbox"
+            value="Sports"
+            checked={category.includes("Sports")}
+            name="category"
+            onChange={handleCategory}
+          />
+
+          <label htmlFor="Other">Other</label>
+          <input
+            type="checkbox"
+            value="Other"
+            checked={category.includes("Other")}
+            name="category"
+            onChange={handleCategory}
+          />
+        </div>
+</div>
+        <label htmlFor="description">Description*</label>
         <textarea
           name="description"
           cols="30"
@@ -130,7 +212,8 @@ function EditGamePage() {
           value={description}
           onChange={handleDescription}
         ></textarea>
-
+        </div>
+        <div className="editGameFormDiv2">
         <label htmlFor="gameUrl">GameUrl*</label>
         <input
           type="text"
@@ -139,93 +222,29 @@ function EditGamePage() {
           onChange={handleGameUrl}
         />
 
+
+<label htmlFor="imageUrl">Game thumbnail*</label>
+{imageUrl && (
+              <div className="thumbnailPreviewDiv">
+                <img
+                  src={imageUrl}
+                  alt="thumbnail preview"
+                  className="thumbnailPreview"
+                />
+              </div>
+            )}
         <input
           type="file"
           name="imageUrl"
           onChange={(e) => handleFileUpload(e)}
         />
-
-        <label htmlFor="category">Category:</label>
-        <div>
-          <input
-            type="checkbox"
-            value="Action"
-            checked={category.includes("Action")}
-            name="category"
-            onChange={handleCategory}
-          />
-          <label htmlFor="Action">Action</label>
-
-          <input
-            type="checkbox"
-            value="Arcade"
-            checked={category.includes("Arcade")}
-            name="category"
-            onChange={handleCategory}
-          />
-          <label htmlFor="Arcade">Arcade</label>
-
-          <input
-            type="checkbox"
-            value="Adventure"
-            checked={category.includes("Adventure")}
-            name="category"
-            onChange={handleCategory}
-          />
-          <label htmlFor="Adventure">Adventure</label>
-
-          <input
-            type="checkbox"
-            value="Racing"
-            checked={category.includes("Racing")}
-            name="category"
-            onChange={handleCategory}
-          />
-          <label htmlFor="Racing">Racing</label>
-
-          <input
-            type="checkbox"
-            value="Puzzle"
-            checked={category.includes("Puzzle")}
-            name="category"
-            onChange={handleCategory}
-          />
-          <label htmlFor="Puzzle">Puzzle</label>
-
-          <input
-            type="checkbox"
-            value="Shooting"
-            checked={category.includes("Shooting")}
-            name="category"
-            onChange={handleCategory}
-          />
-          <label htmlFor="Shooting">Shooting</label>
-
-          <input
-            type="checkbox"
-            value="Sports"
-            checked={category.includes("Sports")}
-            name="category"
-            onChange={handleCategory}
-          />
-          <label htmlFor="Sports">Sports</label>
-
-          <input
-            type="checkbox"
-            value="Other"
-            checked={category.includes("Other")}
-            name="category"
-            onChange={handleCategory}
-          />
-          <label htmlFor="Other">Other</label>
         </div>
+</div>
 
         <button type="submit">Edit your game</button>
 
-        <button onClick={() => deleteGame(gameId)} className="deleteGameBtn">
-          Delete Game
-        </button>
       </form>
+        
       {errorMessage && <p>{errorMessage}</p>}
     </div>
   );

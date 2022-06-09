@@ -33,13 +33,14 @@ function LoginPage() {
 
   return (
     <div className="loginBody">
+    <div className="loginPageB">
       <h1>Login </h1>
       <form onSubmit={handleLoginSubmit} className="loginForm">
         <label>Email address:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+        <input  className="css-input" type="email" name="email" value={email} onChange={handleEmail} />
 
         <label>Password:</label>
-        <input
+        <input className="css-input"
           type="password"
           name="password"
           value={password}
@@ -52,7 +53,7 @@ function LoginPage() {
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-    </div>
+    </div></div>
   );
 }
 

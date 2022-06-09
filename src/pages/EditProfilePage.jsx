@@ -153,6 +153,8 @@ function EditProfilePage() {
   return (
     <div className="editProfileBody">
       <form onSubmit={handleSubmit} className="editProfileForm">
+      <div className="editProfileInnerFormDiv">
+      <div className="editProfileForm1">
         <label htmlFor="name">Name:</label>
         <input type="text" name="name" value={name} onChange={handleName} />
 
@@ -167,7 +169,8 @@ function EditProfilePage() {
           value={bio}
           onChange={handleBio}
         ></textarea>
-
+        </div>
+        <div>
         <input
           type="file"
           name="imageUrl"
@@ -240,7 +243,8 @@ function EditProfilePage() {
             São Paulo
           </option>
         </select>
-
+        </div>
+</div>
         <button type="submit">Edit profile</button>
         <button onClick={() => deleteUser(userId)} className="deleteProfileBtn">
           Delete profile

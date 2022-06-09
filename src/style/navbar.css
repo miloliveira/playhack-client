@@ -1,10 +1,11 @@
 nav{
-    width: 100vw;
     height: 50px;
+    width: 100vw;
     background-color: #363636;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position:fixed;
 }
 
 
@@ -18,16 +19,32 @@ nav button{
 .navUser{ 
     height: 30px;
     width: 30px;
-    background-color: #121212;
+    background-color: white;
     padding: 5px;
     border-radius: 20px;
+    margin-left: 15px;
 }
 
 
 .navRight{
     display: flex;
     align-items: center;
-    margin-right: 50px;
+    width: auto;
+   margin-right: 100px;
+}
+
+.navLeft{
+  display: flex;
+  align-items: center;
+}
+
+.subGameBut{
+  width: 110px;
+  margin: 10pxx;
+  height: 30px;
+  border-radius: 15px ;
+  background-color: white;
+  color: #363636;
 }
 
 .dropLink{
@@ -44,6 +61,7 @@ nav button{
   .dropdown {
     float: left;
     overflow: hidden;
+    width: 100%;
   }
   
   /* Dropdown button */
@@ -52,31 +70,34 @@ nav button{
     border: none;
     outline: none;
     color: white;
-    padding: 0px 16px;
+    padding: 0px 0px;
     background-color: inherit;
     font-family: inherit; /* Important for vertical align on mobile phones */
     margin: 0; /* Important for vertical align on mobile phones */
   }
   
-  
-  /* Dropdown content (hidden by default) */
+
+  /* HOLEDIV!!!!!!!Dropdown content (hidden by default) */
   .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
+    width: 120px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    margin-right: 100px;
   }
   
-  /* Links inside the dropdown */
+  /*SELECTED!!!! Links inside the dropdown */
   .dropdown-content a {
     float: none;
     color: black;
-    padding: 12px 16px;
+    padding: 12px 0px 12px 0px;
+    margin-right: 200px;
     text-decoration: none;
     display: block;
     text-align: left;
+    width: 120px;
   }
   
   /* Add a grey background color to dropdown links on hover */

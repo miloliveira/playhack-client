@@ -1,9 +1,3 @@
-.editProfileBody{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 .editProfileForm{
     display: flex;
     flex-direction: column;
@@ -14,12 +8,13 @@
     width: 50vw;
    
 }
+.editProfileBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 .deleteProfileBtn{
     background-color: red;
     border-radius: 5px;
     }
-
-    .editProfileInnerFormDiv{
-        display: flex;
-    flex-direction: row;
-    }g

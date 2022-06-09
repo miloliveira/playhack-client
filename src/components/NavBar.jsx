@@ -8,6 +8,7 @@ function NavBar() {
   return (
     <nav>
     <div className="navLeft">
+    <div className="logoImg"></div>
       <Link to="/">
         <button>Home</button>
       </Link>
@@ -21,15 +22,15 @@ function NavBar() {
         <>
 
           <Link to={`/submit-game/${user._id}`}>
-            <button>Submit a game</button>
+            <button className="subGameBut">Submit a game</button>
           </Link>
       
       <div class="dropdown">
         <button class="dropbtn">
-          <img className="navUser" src="https://res.cloudinary.com/dzwl5teme/image/upload/v1654704986/playHack/2_pfemvl.png" alt="user"/>
-          <i class="fa fa-caret-down"></i>
+          <img className="navUser" src="https://res.cloudinary.com/dzwl5teme/image/upload/v1654704454/playHack/profile_nav_icon1_v9zjfd.png" alt="user"/>
+          <i className="fa fa-caret-down"></i>
         </button>
-        <div class="dropdown-content">
+        <div className="dropdown-content">
   
         <Link to={`/profile/${user._id}`}>
             <button className="dropLink">profile</button>
@@ -55,9 +56,6 @@ function NavBar() {
           </Link>
           <Link to="/login">
             <button>Login</button>
-          </Link>
-          <Link to="/games">
-            <button>Games</button>
           </Link>
         </>
       )}

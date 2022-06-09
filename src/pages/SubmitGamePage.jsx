@@ -80,12 +80,13 @@ function SubmitGamePage() {
               onChange={handleTitle}
             />
             <div className="submitGameCatDiv">
-              <label htmlFor="category">Category:</label>
+              <label htmlFor="category">Category*</label>
               <div className="submitGameCategories">
                 <label htmlFor="Action">Action</label>
                 <input
                   type="checkbox"
                   value="Action"
+                  className="catCheckBoxInput"
                   name="category"
                   onClick={handleCategory}
                 />
@@ -94,6 +95,7 @@ function SubmitGamePage() {
                 <input
                   type="checkbox"
                   value="Arcade"
+                  className="catCheckBoxInput"
                   name="category"
                   onClick={handleCategory}
                 />
@@ -102,6 +104,7 @@ function SubmitGamePage() {
                 <input
                   type="checkbox"
                   value="Adventure"
+                  className="catCheckBoxInput"
                   name="category"
                   onClick={handleCategory}
                 />
@@ -110,6 +113,7 @@ function SubmitGamePage() {
                 <input
                   type="checkbox"
                   value="Racing"
+                  className="catCheckBoxInput"
                   name="category"
                   onClick={handleCategory}
                 />
@@ -118,6 +122,7 @@ function SubmitGamePage() {
                 <input
                   type="checkbox"
                   value="Puzzle"
+                  className="catCheckBoxInput"
                   name="category"
                   onClick={handleCategory}
                 />
@@ -126,6 +131,7 @@ function SubmitGamePage() {
                 <input
                   type="checkbox"
                   value="Shooting"
+                  className="catCheckBoxInput"
                   name="category"
                   onClick={handleCategory}
                 />
@@ -134,6 +140,7 @@ function SubmitGamePage() {
                 <input
                   type="checkbox"
                   value="Sports"
+                  className="catCheckBoxInput"
                   name="category"
                   onClick={handleCategory}
                 />
@@ -142,6 +149,7 @@ function SubmitGamePage() {
                 <input
                   type="checkbox"
                   value="Other"
+                  
                   name="category"
                   onClick={handleCategory}
                 />
@@ -184,7 +192,7 @@ function SubmitGamePage() {
             />
           </div>
         </div>
-        <button type="submit">Submit your game</button>
+        <button type="submit" className="submitGameSubmitBtn">Submit your game</button>
       </form>
       {errorMessage && <p>{errorMessage}</p>}
     </div>

@@ -36,10 +36,10 @@ function LoginPage() {
     <div className="loginPageB">
       <h1>Login </h1>
       <form onSubmit={handleLoginSubmit} className="loginForm">
-        <label>Email address:</label>
+        <label>Email address*</label>
         <input  className="css-authinput" type="email" name="email" value={email} onChange={handleEmail} />
 
-        <label>Password:</label>
+        <label>Password*</label>
         <input className="css-authinput"
           type="password"
           name="password"

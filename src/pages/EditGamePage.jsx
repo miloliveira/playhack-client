@@ -135,6 +135,7 @@ function EditGamePage() {
           <input
             type="checkbox"
             value="Action"
+            className="catCheckBoxInput"
             checked={category.includes("Action")}
             name="category"
             onChange={handleCategory}
@@ -144,6 +145,7 @@ function EditGamePage() {
           <input
             type="checkbox"
             value="Arcade"
+            className="catCheckBoxInput"
             checked={category.includes("Arcade")}
             name="category"
             onChange={handleCategory}
@@ -153,6 +155,7 @@ function EditGamePage() {
           <input
             type="checkbox"
             value="Adventure"
+            className="catCheckBoxInput"
             checked={category.includes("Adventure")}
             name="category"
             onChange={handleCategory}
@@ -162,6 +165,7 @@ function EditGamePage() {
           <input
             type="checkbox"
             value="Racing"
+            className="catCheckBoxInput"
             checked={category.includes("Racing")}
             name="category"
             onChange={handleCategory}
@@ -171,6 +175,7 @@ function EditGamePage() {
           <input
             type="checkbox"
             value="Puzzle"
+            className="catCheckBoxInput"
             checked={category.includes("Puzzle")}
             name="category"
             onChange={handleCategory}
@@ -180,6 +185,7 @@ function EditGamePage() {
           <input
             type="checkbox"
             value="Shooting"
+            className="catCheckBoxInput"
             checked={category.includes("Shooting")}
             name="category"
             onChange={handleCategory}
@@ -189,6 +195,7 @@ function EditGamePage() {
           <input
             type="checkbox"
             value="Sports"
+            className="catCheckBoxInput"
             checked={category.includes("Sports")}
             name="category"
             onChange={handleCategory}
@@ -198,6 +205,7 @@ function EditGamePage() {
           <input
             type="checkbox"
             value="Other"
+            
             checked={category.includes("Other")}
             name="category"
             onChange={handleCategory}
@@ -241,7 +249,7 @@ function EditGamePage() {
         </div>
 </div>
 
-        <button type="submit">Edit your game</button>
+        <button type="submit"  className="editGameSubmitButton" >Edit your game</button>
 
       </form>
         

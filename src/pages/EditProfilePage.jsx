@@ -149,104 +149,112 @@ function EditProfilePage() {
   return (
     <div className="editProfileBody">
       <form onSubmit={handleSubmit} className="editProfileForm">
-<h4>Edit your profile</h4>
-<div className="deleteProfileBtnDiv">
-      <button onClick={() => deleteUser(userId)} className="deleteProfileBtn">
-          Delete profile
-        </button>
+        <h4>Edit your profile</h4>
+        <div className="deleteProfileBtnDiv">
+          <button
+            onClick={() => deleteUser(userId)}
+            className="deleteProfileBtn"
+          >
+            Delete profile
+          </button>
         </div>
-      <div className="editProfileFormInnerDiv">
-      <div className="editProfileFormInfoDiv1">
-        <label htmlFor="name">Nam*:</label>
-        <input type="text" name="name" value={name} onChange={handleName} />
+        <div className="editProfileFormInnerDiv">
+          <div className="editProfileFormInfoDiv1">
+            <label htmlFor="name">Name*:</label>
+            <input type="text" name="name" value={name} onChange={handleName} />
 
-        <label htmlFor="email">Email address*</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+            <label htmlFor="email">Email address*</label>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleEmail}
+            />
 
-        <label htmlFor="bio">Bio*</label>
-        <textarea
-          name="bio"
-          cols="30"
-          rows="7"
-          value={bio}
-          onChange={handleBio}
-        ></textarea>
+            <label htmlFor="bio">Bio*</label>
+            <textarea
+              name="bio"
+              cols="30"
+              rows="7"
+              value={bio}
+              onChange={handleBio}
+            ></textarea>
 
+            <label htmlFor="cohort">Cohort*</label>
+            <input
+              type="text"
+              name="cohort"
+              placeholder="ex:April2022"
+              value={cohort}
+              onChange={handleCohort}
+            />
 
+            <label htmlFor="campus">Campus*</label>
+            <select
+              id="campus"
+              name="campus"
+              /* value={campus} */
+              onClick={handleCampus}
+            >
+              <option value="" selected={campus === ""}></option>
+              <option value="Lisbon" selected={campus === "Lisbon"}>
+                Lisbon
+              </option>
+              <option value="Berlin" selected={campus === "Berlin"}>
+                Berlin
+              </option>
+              <option value="London" selected={campus === "Berlin"}>
+                London
+              </option>
+              <option value="Barcelona" selected={campus === "Barcelona"}>
+                Barcelona
+              </option>
+              <option value="Madrid" selected={campus === "Madrid"}>
+                Madrid
+              </option>
+              <option value="Amsterdam" selected={campus === "Amsterdam"}>
+                Amsterdam
+              </option>
+              <option value="Miami" selected={campus === "Miami"}>
+                Miami
+              </option>
+              <option
+                value="New York City"
+                selected={campus === "New York City"}
+              >
+                New York City
+              </option>
+              <option value="Tampa" selected={campus === "Tampa"}>
+                Tampa
+              </option>
+              <option value="Mexico City" selected={campus === "Mexico City"}>
+                Mexico City
+              </option>
+              <option value="São Paulo" selected={campus === "São Paulo"}>
+                São Paulo
+              </option>
+            </select>
+          </div>
 
-<label htmlFor="cohort">Cohort*</label>
-        <input
-          type="text"
-          name="cohort"
-          placeholder="ex:April2022"
-          value={cohort}
-          onChange={handleCohort}
-        />
+          <div className="editProfileFormInfoDiv2">
+            <label htmlFor="linkedin">Linkedin profile link*</label>
+            <input
+              type="text"
+              name="linkedin"
+              value={linkedin}
+              onChange={handleLinkedin}
+            />
+            <label htmlFor="github">Github profile link*</label>
+            <input
+              type="text"
+              name="github"
+              value={github}
+              onChange={handleGithub}
+            />
 
-<label htmlFor="campus">Campus*</label>
-        <select
-          id="campus"
-          name="campus"
-          /* value={campus} */
-          onClick={handleCampus}
-        >
-          <option value="" selected={campus === ""}></option>
-          <option value="Lisbon" selected={campus === "Lisbon"}>
-            Lisbon
-          </option>
-          <option value="Berlin" selected={campus === "Berlin"}>
-            Berlin
-          </option>
-          <option value="London" selected={campus === "Berlin"}>
-            London
-          </option>
-          <option value="Barcelona" selected={campus === "Barcelona"}>
-            Barcelona
-          </option>
-          <option value="Madrid" selected={campus === "Madrid"}>
-            Madrid
-          </option>
-          <option value="Amsterdam" selected={campus === "Amsterdam"}>
-            Amsterdam
-          </option>
-          <option value="Miami" selected={campus === "Miami"}>
-            Miami
-          </option>
-          <option value="New York City" selected={campus === "New York City"}>
-            New York City
-          </option>
-          <option value="Tampa" selected={campus === "Tampa"}>
-            Tampa
-          </option>
-          <option value="Mexico City" selected={campus === "Mexico City"}>
-            Mexico City
-          </option>
-          <option value="São Paulo" selected={campus === "São Paulo"}>
-            São Paulo
-          </option>
-        </select>
-
-</div>
-
-<div className="editProfileFormInfoDiv2">
-        <label htmlFor="linkedin">Linkedin profile link*</label>
-        <input
-          type="text"
-          name="linkedin"
-          value={linkedin}
-          onChange={handleLinkedin}
-        />
-        <label htmlFor="github">Github profile link*</label>
-        <input
-          type="text"
-          name="github"
-          value={github}
-          onChange={handleGithub}
-        />
-
-<label htmlFor="imageUrl">Upload profile image:</label>
-{imageUrl && (
-              <div className="profilePicPreviewDiv" >
+            <label htmlFor="imageUrl">Upload profile image*</label>
+            {imageUrl && (
+              <div className="profilePicPreviewDiv">
                 <img
                   src={imageUrl}
                   alt="profile pic preview"
@@ -254,17 +262,17 @@ function EditProfilePage() {
                 />
               </div>
             )}
-        <input
-          type="file"
-          name="imageUrl"
-          onChange={(e) => handleFileUpload(e)}
-        />
-
-</div>
+            <input
+              type="file"
+              name="imageUrl"
+              onChange={(e) => handleFileUpload(e)}
+            />
+          </div>
         </div>
 
-        <button type="submit" className="editProfileSubmitBtn">Edit profile</button>
-        
+        <button type="submit" className="editProfileSubmitBtn">
+          Edit profile
+        </button>
       </form>
     </div>
   );

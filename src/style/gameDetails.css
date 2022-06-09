@@ -3,17 +3,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100vw;
+  background-color: #232323;
 }
 
 /* GAME INFO DIV*/
 
 .gameDetailsDiv {
   margin-top: 100px;
-  margin-bottom: 70px;
   width: 960px;
+  height:100%;
   display: flex;
   flex-direction: column;
   text-align: left;
+  background-color: #363636;
+  border-radius: 50px 50px 0px 0px;
+  padding: 50px;
+  color: white;
 }
 
 /* GAME INFO */
@@ -27,6 +33,16 @@
   display: flex;
   text-decoration: none;
   align-items: center;
+  color: white;
+  padding-bottom: 0;
+  
+}
+.gameCreatorLink h4{
+  border-bottom: 2px solid white;
+}
+.gameCreatorLink h4:hover{
+  color: darkgrey;
+  border-bottom: 2px solid darkgrey;
 }
 
 .gameCats {
@@ -36,8 +52,8 @@
 }
 
 .gameCats p {
-  border: 2px solid #2f063d;
-  background-color: #2f063d;
+  border: 2px solid #232323;
+  background-color: #232323;
   border-radius: 15px;
   padding-left: 10px;
   padding-right: 10px;
@@ -60,26 +76,39 @@
   align-items: center;
 }
 
-.fullScreenBtn {
-  height: 30px;
-  border: 2px solid #2f063d;
-  background-color: #2f063d;
-  border-radius: 15px;
-  padding: 2px 15px;
-}
+
 
 .fullScreenBtn a {
   text-decoration: none;
-  color: white;
+  color: #363636;
 }
 
+.fullScreenBtn {
+  width: 130px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: white;
+  
+  border: 0;
+}
+
+.fullScreenBtn:hover {
+  width: 130px;
+  height: 30px;
+  border-radius: 15px;
+  padding: 1px;
+  background-color: rgb(209, 209, 209);
+  color: #363636;
+}
 
 .lowerDivGameDetails{
   margin-top: 40px;
   width: 960px;
+  height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background-color: #363636;
 }
 
 
@@ -126,6 +155,16 @@
   align-items: center;
   height: 40px;
   font-size: 15px;
+  color: white;
+}
+
+.commentCreatorLink p {
+ border-bottom: 2px solid white;
+}
+
+.commentCreatorLink p:hover{
+  color: darkgrey;
+  border-bottom: 2px solid darkgrey;
 }
 
 .commentCreatorLink img {
@@ -133,6 +172,9 @@
   height: 20px;
   border-radius: 15px;
   margin-right: 5px;
+  object-fit: cover;
+  object-position: 20% 10%;
+  border-radius: 100px;
 }
 
 .commentContentDiv p {
@@ -145,15 +187,19 @@
 
 .deleteCommentBtn {
   border: 0;
+  background-color: #363636
 }
 
 .deleteCommentBtn img {
   width: 15px;
   height: 15px;
+  -webkit-filter: invert(1);
+  filter: invert(1);
 }
 
 .likeBtn{
   border: 0;
+  background-color: #363636
 }
 
 .likeBtnImg{
@@ -183,6 +229,43 @@
   margin-bottom: 10px;
 }
 
+.createCommentForm textarea {
+  margin-bottom: 15px;
+  margin-top: 5px;
+  padding: 5px;
+  font-size: 14px;
+  border-width: 1px;
+  border-color: #cccccc;
+  background-color: #ffffff;
+  color: #000000;
+  border-style: solid;
+  border-radius: 15px;
+}
+
+.createCommentForm textarea:focus {
+  outline: none;
+}
+.submitCommentSubmitBtn {
+  width: 110px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: white;
+  color: #363636;
+  border: 0;
+}
+
+.submitCommentSubmitBtn:hover {
+  width: 110px;
+  height: 30px;
+  border-radius: 15px;
+  padding: 1px;
+  background-color: rgb(209, 209, 209);
+  color: #363636;
+}
+
+
+/* RELATED GAMES  */
+
 .recomendationGames{
   width: 360px;
   height: 400px;
@@ -193,7 +276,7 @@
 }
 .allRelatedGames{
   width: 360px;
-  height: 400px;
+  height: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -203,7 +286,7 @@
 .eachRelatedGame{
   width: 130px;
   height: 160px;
-  background-color: #363636;
+  background-color:#232323;
   border-radius: 10px;
 }
 

@@ -42,7 +42,7 @@ function Comments(props) {
           value={content}
           onChange={handleContent}
         ></textarea>
-<button type="submit">Comment</button>
+<button type="submit" className="submitCommentSubmitBtn">Comment</button>
 </form>
 
     </div>

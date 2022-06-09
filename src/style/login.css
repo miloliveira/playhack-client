@@ -4,15 +4,17 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-color: #232323;
 }
 
 .loginPageB {
   border-radius: 50px;
   width: 450px;
-  background-color: grey;
+  background-color:#363636;
   height: 400px;
   margin-top: 50px;
   text-align: center;
+  color: white;
 }
 
 .loginForm {
@@ -20,6 +22,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
 }
 
 .css-authinput {
@@ -44,11 +47,12 @@
     text-decoration: none;
     color: white;
     margin: 0;
+    border-bottom: 2px solid white;
 }
 
 .loginBtnSubmit{
     width: 110px;
-  margin: 10pxx;
+  margin: 10px;
   height: 30px;
   border-radius: 15px ;
   background-color: white;

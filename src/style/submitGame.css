@@ -3,6 +3,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #232323;
 }
 
 .submitGameForm {
@@ -10,11 +13,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2px solid black;
-  border-radius: 15px;
+  background-color: #363636;
+  border-radius: 50px 50px 0px 0px;
   width: 960px;
-  height: 500px;
+  height: 100%;
   margin-top: 100px;
+  color: white;
 }
 
 .submitGameFormInnerDiv {
@@ -34,7 +38,35 @@
 }
 
 .submitGameFormDiv1 input {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  margin-top: 5px;
+  padding: 5px;
+  font-size: 14px;
+  border-width: 1px;
+  border-color: #cccccc;
+  background-color: #ffffff;
+  color: #000000;
+  border-style: solid;
+  border-radius: 50px;
+}
+.submitGameFormDiv1 input:focus {
+  outline: none;
+}
+.submitGameFormDiv1 textarea {
+  margin-bottom: 15px;
+  margin-top: 5px;
+  padding: 5px;
+  font-size: 14px;
+  border-width: 1px;
+  border-color: #cccccc;
+  background-color: #ffffff;
+  color: #000000;
+  border-style: solid;
+  border-radius: 25px;
+}
+
+.submitGameFormDiv1 textarea:focus {
+  outline: none;
 }
 
 .submitGameFormDiv2 {
@@ -45,7 +77,19 @@
 }
 
 .submitGameFormDiv2 input {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  margin-top: 5px;
+  padding: 5px;
+  font-size: 14px;
+  border-width: 1px;
+  border-color: #cccccc;
+  background-color: #ffffff;
+  color: #000000;
+  border-style: solid;
+  border-radius: 50px;
+}
+.submitGameFormDiv2 input:focus {
+  outline: none;
 }
 
 .submitGameCatDiv {
@@ -71,4 +115,22 @@
   object-position: 50% 50%;
   width: 300px;
   height: 200px;
+}
+
+.submitGameSubmitBtn {
+  width: 130px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: white;
+  color: #363636;
+  border: 0;
+}
+
+.submitGameSubmitBtn:hover {
+  width: 130px;
+  height: 40px;
+  border-radius: 20px;
+  padding: 1px;
+  background-color: rgb(209, 209, 209);
+  color: #363636;
 }

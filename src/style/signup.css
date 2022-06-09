@@ -4,15 +4,17 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-color: #232323;
 }
 
 .signupPageB {
     border-radius: 50px;
     width: 450px;
-    background-color: grey;
+    background-color: #363636;
     height: 450px;
     margin-top: 50px;
     text-align: center;
+    color: white;
   }
 
 .signupForm{
@@ -25,13 +27,15 @@
 
 .loginFormPhraseP{
     margin-bottom:5px ;
-    margin-top: 40px;
+    margin-top: 25px;
+    
 }
 
 .signupLinkBtn{
     text-decoration: none;
     color: white;
     margin: 0;
+    border-bottom: 2px solid white;
 }
 
 

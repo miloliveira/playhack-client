@@ -57,7 +57,7 @@ function ProfilePage() {
                   </a>
                   <a href={thisUser.github} target="_blank" rel="noreferrer">
                     <img
-                      src="https://res.cloudinary.com/dzwl5teme/image/upload/v1654766013/playHack/github_qjmmxj.png"
+                      src="https://res.cloudinary.com/dzwl5teme/image/upload/v1654848433/playHack/github_wwxlcp.png"
                       alt="github icon "
                       className="accountIcon"
                     />

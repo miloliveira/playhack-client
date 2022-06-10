@@ -70,7 +70,7 @@
   margin-bottom: 20px;
 }
 
-.accountIcon{
+.accountIcon {
   width: 30px;
   height: 30px;
   -webkit-filter: invert(1);
@@ -121,9 +121,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-margin-left: 20px;
+  margin-left: 20px;
 }
-
 
 .submitedGameTitleP {
   max-width: 280px;
@@ -136,17 +135,16 @@ margin-left: 20px;
 .titleP {
   word-wrap: break-word;
   white-space: pre-wrap;
-  max-width: 100% ;
+  max-width: 100%;
 }
 
-.editGameBtnDiv{
+.editGameBtnDiv {
   max-width: 210px;
   display: flex;
   justify-content: flex-end;
 }
 
-.editGameBtnLink{
-  
+.editGameBtnLink {
   width: 20px;
   height: 20px;
 }
@@ -159,11 +157,10 @@ margin-left: 20px;
   height: auto;
 }
 
-#editGameIcon{
+#editGameIcon {
   width: 20px;
   height: 20px;
 }
-
 
 .thisUserGameCat p {
   margin-right: 15px;
@@ -174,7 +171,7 @@ margin-left: 20px;
   padding-right: 10px;
   margin-top: 2px;
   margin-bottom: 2px;
-  color: black  ;
+  color: black;
   font-size: small;
   text-align: center;
 }
@@ -193,7 +190,7 @@ margin-left: 20px;
 .likedGamesDiv {
   display: flex;
   flex-direction: column;
-color: white;
+  color: white;
   border-radius: 50px;
   width: 880px;
   height: 250px;
@@ -245,7 +242,7 @@ color: white;
 
 .eachLikedGamePDiv p {
   width: 140px;
-font-size: 12px;
+  font-size: 12px;
   text-align: center;
 }
 
@@ -270,8 +267,7 @@ font-size: 12px;
 
 .allLikedGames::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: white;
-  border: 1px solid #363636;
+  background-color: #262626;
 }
 .allLikedGames::-webkit-scrollbar-track-piece {
   background-color: rgba(0, 0, 0, 0);
@@ -291,7 +287,7 @@ font-size: 12px;
 
 .thisUserGames::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: white;
+  background-color: #262626;
 }
 .thisUserGames::-webkit-scrollbar-track-piece {
   background-color: rgba(0, 0, 0, 0);

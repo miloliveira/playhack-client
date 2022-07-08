@@ -58,31 +58,32 @@ Play Hack is a platform that gathers the first project of Web Dev Bootcamp from 
 
 Pages:
 
-- LoginPage
+- Login
 
-- SignupPage
+- Signup
 
 - HomePage
 
-- ProfilePage
+- Profile
 
-- EditProfilePage
+- Edit Profile
 
-- SubmitGamePage
+- All Games
 
-- GamesListPage
+- Game Details
 
-- GameDetailsPage
+- Submit Game
 
-- EditGamePage
+- Edit Game
 
 Components:
 
-- profile
-- game
-- ratings
-- Navbar
-- comments
+- create comment
+- view comment
+- search
+- is public
+- is private
+- navbar
 
 <br>
 
@@ -222,6 +223,6 @@ The url to your repository and to your deployed project
 
 ### Contributors
 
-Mariana Oliveira - https://github.com/miloliveira - https://www.linkedin.com/in/miloliveira/
+Mariana Oliveira - [git hub account](https://github.com/miloliveira) - [linkedin account](https://www.linkedin.com/in/miloliveira/)
 
-João Gonçalves - https://github.com/joaopdg - https://www.linkedin.com/in/joaopdg/
+João Gonçalves - [git hub account](https://github.com/joaopdg) - [linkedin account](https://www.linkedin.com/in/joaopdg/)

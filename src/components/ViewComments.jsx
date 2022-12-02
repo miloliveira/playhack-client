@@ -36,7 +36,9 @@ function ViewComments(props) {
   console.log(commentList);
   return (
     <div className="viewCommentsDiv">
-      {commentList.length === 0 && <p className="noCommentsP">No comments to show yet!</p>}
+      {commentList.length === 0 && (
+        <p className="noCommentsP">No comments to show yet!</p>
+      )}
       {commentList.length > 0 &&
         commentList.map((comment) => {
           return (
@@ -50,14 +52,21 @@ function ViewComments(props) {
                   <p>{comment.user.name}</p>
                 </Link>
                 {user && user._id === comment.user._id && (
-                  <button onClick={() => deleteComment(comment._id)} className="deleteCommentBtn" >
-                    <img src="https://res.cloudinary.com/dzwl5teme/image/upload/v1654766013/playHack/trashbin_w3dkwg.png" alt="trash bin" />
+                  <button
+                    onClick={() => deleteComment(comment._id)}
+                    className="deleteCommentBtn"
+                  >
+                    <img
+                      src="https://res.cloudinary.com/dzwl5teme/image/upload/v1654766013/playHack/trashbin_w3dkwg.png"
+                      alt="trash bin"
+                    />
                   </button>
                 )}
               </div>
               <div className="commentContentDiv">
                 <p>{comment.content}</p>
               </div>
+
             </div>
           );
         })}

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+
 function ProfilePage() {
   const { isLoggedIn, user } = useContext(AuthContext);
   const [thisUser, setThisUser] = useState(null);

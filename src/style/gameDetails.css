@@ -13,7 +13,7 @@
 .gameDetailsDiv {
   margin-top: 100px;
   width: 960px;
-  min-height:100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -36,12 +36,11 @@
   align-items: center;
   color: white;
   padding-bottom: 0;
-  
 }
-.gameCreatorLink h4{
+.gameCreatorLink h4 {
   border-bottom: 2px solid white;
 }
-.gameCreatorLink h4:hover{
+.gameCreatorLink h4:hover {
   color: darkgrey;
   border-bottom: 2px solid darkgrey;
 }
@@ -78,8 +77,6 @@
   align-items: center;
 }
 
-
-
 .fullScreenBtn a {
   text-decoration: none;
   color: #363636;
@@ -90,7 +87,7 @@
   height: 30px;
   border-radius: 15px;
   background-color: white;
-  
+
   border: 0;
 }
 
@@ -103,7 +100,7 @@
   color: #363636;
 }
 
-.lowerDivGameDetails{
+.lowerDivGameDetails {
   margin-top: 40px;
   width: 960px;
   height: 100%;
@@ -112,8 +109,6 @@
   justify-content: space-between;
   background-color: #363636;
 }
-
-
 
 /* COMMENTS */
 
@@ -161,10 +156,10 @@
 }
 
 .commentCreatorLink p {
- border-bottom: 2px solid white;
+  border-bottom: 2px solid white;
 }
 
-.commentCreatorLink p:hover{
+.commentCreatorLink p:hover {
   color: darkgrey;
   border-bottom: 2px solid darkgrey;
 }
@@ -189,7 +184,7 @@
 
 .deleteCommentBtn {
   border: 0;
-  background-color: #363636
+  background-color: #363636;
 }
 
 .deleteCommentBtn img {
@@ -199,18 +194,15 @@
   filter: invert(1);
 }
 
-.likeBtn{
+.likeBtn {
   border: 0;
-  background-color: #363636
+  background-color: #363636;
 }
 
-.likeBtnImg{
+.likeBtnImg {
   width: 30px;
   height: 30px;
 }
-
-
-
 
 /* CREATE COMMENTS */
 
@@ -265,40 +257,36 @@
   color: #363636;
 }
 
-
 /* RELATED GAMES  */
 
-.recomendationGames{
+.recomendationGames {
   width: 360px;
-
 }
 
-.recomendationGames h3{
+.recomendationGames h3 {
   margin-left: 35px;
 }
-.allRelatedGames{
+.allRelatedGames {
   width: 360px;
   height: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start
-  
+  justify-content: flex-start;
 }
-.eachRelatedGame{
+.eachRelatedGame {
   width: 130px;
   height: 160px;
-  background-color:#232323;
+  background-color: #232323;
   border-radius: 10px;
   margin-bottom: 35px;
-  margin-left: 35px
+  margin-left: 35px;
 }
 
-
-.eachRelatedGameLink{
+.eachRelatedGameLink {
   text-decoration: none;
   font-size: 14px;
- text-align: center;
+  text-align: center;
 }
 
 .eachRelatedGameLink p {
@@ -306,7 +294,7 @@
   color: white;
 }
 
-.eachRelatedGameThumbnail{
+.eachRelatedGameThumbnail {
   width: 130px;
   height: 110px;
   object-fit: cover;
